@@ -1,0 +1,874 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>Aarav's Math Agility Test | Bhanzu</title>
+  
+  <!-- Google Fonts: Outfit & Plus Jakarta Sans -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap" rel="stylesheet">
+  
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          fontFamily: {
+            outfit: ['Outfit', 'sans-serif'],
+            sans: ['Plus Jakarta Sans', 'sans-serif'],
+          },
+          colors: {
+            brand: {
+              orange: '#FF5722',
+              amber: '#F59E0B',
+              flame: '#FF6B00',
+              glow: 'rgba(255, 107, 0, 0.4)',
+            }
+          },
+          animation: {
+            'float-slow': 'float 6s ease-in-out infinite',
+            'float-delayed': 'float 5s ease-in-out 2s infinite',
+            'pulse-glow': 'pulseGlow 2s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+            'shimmer': 'shimmer 2.5s infinite linear',
+          },
+          keyframes: {
+            float: {
+              '0%, 100%': { transform: 'translateY(0px) rotate(0deg)' },
+              '50%': { transform: 'translateY(-12px) rotate(4deg)' },
+            },
+            pulseGlow: {
+              '0%, 100%': { opacity: '0.6', transform: 'scale(1)' },
+              '50%': { opacity: '1', transform: 'scale(1.03)' },
+            },
+            shimmer: {
+              '0%': { transform: 'translateX(-100%)' },
+              '100%': { transform: 'translateX(100%)' },
+            }
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    body {
+      font-family: 'Outfit', sans-serif;
+      -webkit-tap-highlight-color: transparent;
+      user-select: none;
+    }
+
+    /* Glassmorphism utility */
+    .glass-card {
+      background: rgba(15, 23, 42, 0.75);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+    
+    .glass-pill {
+      background: rgba(30, 41, 59, 0.85);
+      backdrop-filter: blur(8px);
+      border: 1px solid rgba(245, 158, 11, 0.25);
+    }
+
+    /* Vibrant neon text gradient */
+    .text-gradient-fire {
+      background: linear-gradient(135deg, #FDE68A 0%, #F59E0B 35%, #FF6B00 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    /* Button shine reflection */
+    .btn-shine {
+      position: relative;
+      overflow: hidden;
+    }
+    .btn-shine::after {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -60%;
+      width: 40%;
+      height: 200%;
+      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.45), transparent);
+      transform: rotate(30deg);
+      animation: btnShine 3.5s infinite ease-in-out;
+    }
+
+    @keyframes btnShine {
+      0% { left: -70%; }
+      30%, 100% { left: 140%; }
+    }
+
+    /* Screen transition animation */
+    .screen {
+      transition: opacity 0.35s ease-out, transform 0.35s ease-out;
+    }
+    .screen.hidden {
+      display: none !important;
+      opacity: 0;
+      transform: scale(0.96);
+    }
+  </style>
+</head>
+
+<body class="bg-slate-950 text-slate-100 min-h-screen flex items-center justify-center p-0 sm:p-4 selection:bg-amber-500 selection:text-slate-900">
+
+  <!-- Mobile App Wrapper Frame -->
+  <div class="relative w-full max-w-[430px] min-h-screen sm:min-h-[860px] sm:max-h-[890px] sm:rounded-[42px] bg-slate-900 border-0 sm:border-8 sm:border-slate-800 shadow-[0_25px_60px_-15px_rgba(0,0,0,0.8)] flex flex-col overflow-hidden">
+    
+    <!-- Ambient Energy Backlights -->
+    <div class="pointer-events-none absolute -top-24 -left-20 w-72 h-72 bg-gradient-to-br from-amber-500/25 to-orange-600/10 rounded-full blur-3xl"></div>
+    <div class="pointer-events-none absolute top-1/3 -right-24 w-80 h-80 bg-gradient-to-bl from-orange-500/20 to-amber-400/5 rounded-full blur-3xl"></div>
+    <div class="pointer-events-none absolute -bottom-20 left-10 w-64 h-64 bg-amber-600/15 rounded-full blur-2xl"></div>
+
+    <!-- Floating Background Math Glyphs (Gamified Atmosphere) -->
+    <div class="pointer-events-none absolute inset-0 overflow-hidden select-none opacity-20">
+      <span class="absolute top-20 left-8 text-3xl font-black text-amber-300 animate-float-slow">÷</span>
+      <span class="absolute top-44 right-10 text-2xl font-black text-orange-400 animate-float-delayed">×</span>
+      <span class="absolute top-1/2 left-6 text-3xl font-black text-amber-500 animate-float-slow">+</span>
+      <span class="absolute bottom-40 right-8 text-4xl font-black text-orange-300 animate-float-delayed">∑</span>
+      <span class="absolute bottom-28 left-12 text-2xl font-black text-amber-400 animate-float-slow">%</span>
+      <span class="absolute top-1/3 right-6 text-xl font-black text-amber-200">π</span>
+    </div>
+
+    <!-- Mobile Top Navigation / Status Header -->
+    <header class="relative z-20 px-6 pt-5 pb-3 flex items-center justify-between">
+      <!-- Bhanzu Arena Pill -->
+      <div class="flex items-center gap-2 px-3 py-1.5 rounded-full bg-slate-800/90 border border-amber-500/30 shadow-inner">
+        <span class="w-2.5 h-2.5 rounded-full bg-amber-400 animate-ping"></span>
+        <span class="w-2.5 h-2.5 rounded-full bg-amber-400 -ml-4.5"></span>
+        <span class="text-xs font-extrabold tracking-wider text-amber-400 uppercase font-sans">Bhanzu Arena</span>
+      </div>
+
+      <!-- Quick Sound / Audio Toggle Indicator -->
+      <button id="audioToggleBtn" class="w-9 h-9 rounded-full bg-slate-800/80 border border-slate-700/60 flex items-center justify-center text-slate-300 hover:text-amber-400 hover:border-amber-500/40 active:scale-95 transition-all" title="Sound Effects">
+        <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.536 8.464a5 5 0 010 7.072m2.828-9.9a9 9 0 010 12.728M5.586 15H4a1 1 0 01-1-1v-4a1 1 0 011-1h1.586l4.707-4.707C10.923 3.663 12 4.109 12 5v14c0 .891-1.077 1.337-1.707.707L5.586 15z" />
+        </svg>
+      </button>
+    </header>
+
+    <!-- MAIN APP CANVAS -->
+    <main class="relative z-10 flex-1 flex flex-col px-6 pb-6 overflow-y-auto">
+      
+      <!-- ========================================================== -->
+      <!-- SCREEN 1: WELCOME SCREEN -->
+      <!-- ========================================================== -->
+      <section id="screen1" class="screen flex-1 flex flex-col justify-between py-2 transition-all duration-300">
+        
+        <!-- Top Gamer Profile & Mentor Rohan Reminder -->
+        <div class="space-y-4">
+          
+          <!-- Aarav's Gamer Badge Card -->
+          <div class="glass-card rounded-2xl p-3.5 flex items-center justify-between border-slate-700/60 shadow-lg">
+            <div class="flex items-center gap-3">
+              <div class="relative">
+                <div class="w-12 h-12 rounded-2xl bg-gradient-to-tr from-amber-500 to-orange-600 flex items-center justify-center text-2xl shadow-md shadow-orange-500/20">
+                  ⚡
+                </div>
+                <span class="absolute -bottom-1 -right-1 bg-emerald-500 text-[10px] font-black text-slate-950 px-1.5 py-0.5 rounded-full border border-slate-900 uppercase">Lvl 4</span>
+              </div>
+              <div>
+                <div class="text-[11px] font-semibold tracking-wider text-slate-400 uppercase">Player Ready</div>
+                <div class="text-base font-bold text-white flex items-center gap-1.5">
+                  Aarav Sharma
+                  <span class="text-amber-400 text-xs">✨</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Mentor Rohan Preview Bubble -->
+            <div class="flex items-center gap-2 pl-3 border-l border-slate-800">
+              <div class="text-right">
+                <div class="text-[10px] font-medium text-amber-300/80">Mentor Rohan</div>
+                <div class="text-[10px] font-bold text-slate-400">Sat Session</div>
+              </div>
+              <div class="w-8 h-8 rounded-full bg-slate-800 border border-amber-400/40 flex items-center justify-center text-xs shadow-sm">
+                👨🏻‍🏫
+              </div>
+            </div>
+          </div>
+
+          <!-- Hero Illustration / Dynamic Radar Hologram -->
+          <div class="relative py-3 flex items-center justify-center">
+            <div class="relative w-44 h-44 flex items-center justify-center">
+              <!-- Animated outer pulsing ring -->
+              <div class="absolute inset-0 rounded-full border-2 border-dashed border-amber-500/30 animate-[spin_20s_linear_infinite]"></div>
+              <div class="absolute inset-3 rounded-full border border-orange-500/20 bg-slate-900/60 backdrop-blur-sm"></div>
+              
+              <!-- Glowing Core Orb -->
+              <div class="absolute w-28 h-28 rounded-full bg-gradient-to-tr from-orange-600/40 via-amber-500/30 to-amber-300/20 blur-md animate-pulse"></div>
+              
+              <!-- Central Trophy & Speed Icon -->
+              <div class="relative z-10 flex flex-col items-center justify-center transform transition-transform hover:scale-105 duration-300">
+                <span class="text-6xl drop-shadow-[0_8px_16px_rgba(245,158,11,0.4)]">⚡🏆</span>
+                <span class="mt-1 px-2.5 py-0.5 rounded-full text-[10px] font-extrabold uppercase tracking-widest bg-amber-500/20 text-amber-300 border border-amber-400/30">
+                  Sprint Mode
+                </span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Main Headlines -->
+          <div class="text-center space-y-2">
+            <h1 class="text-3xl sm:text-[32px] font-extrabold tracking-tight leading-tight text-white">
+              Aarav's <span class="text-gradient-fire">Math Agility Test</span>
+            </h1>
+            
+            <p class="text-sm font-medium text-slate-300/90 leading-relaxed px-2">
+              Solve <span class="text-amber-400 font-bold">3 quick mental math challenges</span> before Saturday's session with <span class="text-white font-semibold underline decoration-amber-400/60 underline-offset-4">Mentor Rohan</span>!
+            </p>
+          </div>
+
+          <!-- Key Stats / Benchmarks Badges -->
+          <div class="grid grid-cols-2 gap-3 pt-1">
+            <!-- Badge 1: Grade 4 Benchmark -->
+            <div class="glass-pill rounded-2xl p-3 flex items-center gap-3 border border-amber-500/20">
+              <div class="w-9 h-9 rounded-xl bg-amber-500/10 border border-amber-500/30 flex items-center justify-center text-lg flex-shrink-0">
+                🎯
+              </div>
+              <div class="min-w-0">
+                <div class="text-[10px] uppercase font-bold tracking-wider text-slate-400">Target</div>
+                <div class="text-xs font-extrabold text-amber-300 truncate">Grade 4 Benchmark</div>
+              </div>
+            </div>
+
+            <!-- Badge 2: Timer -->
+            <div class="glass-pill rounded-2xl p-3 flex items-center gap-3 border border-orange-500/20">
+              <div class="w-9 h-9 rounded-xl bg-orange-500/10 border border-orange-500/30 flex items-center justify-center text-lg flex-shrink-0">
+                ⏱️
+              </div>
+              <div class="min-w-0">
+                <div class="text-[10px] uppercase font-bold tracking-wider text-slate-400">Duration</div>
+                <div class="text-xs font-extrabold text-orange-400">60 Seconds</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- What's Inside Feature Pills -->
+          <div class="glass-card rounded-2xl p-3 border-slate-800">
+            <div class="text-[11px] font-bold text-slate-400 uppercase tracking-wider mb-2 flex items-center justify-between">
+              <span>Sprint Breakdown</span>
+              <span class="text-amber-400 font-mono text-[10px]">3 Challenges</span>
+            </div>
+            <div class="flex items-center justify-between gap-1.5 text-[11px] font-semibold text-slate-300">
+              <div class="flex-1 py-1.5 px-2 rounded-lg bg-slate-800/80 text-center border border-slate-700/50">
+                ⚡ Speed Calcs
+              </div>
+              <div class="flex-1 py-1.5 px-2 rounded-lg bg-slate-800/80 text-center border border-slate-700/50">
+                🧩 Number Ninja
+              </div>
+              <div class="flex-1 py-1.5 px-2 rounded-lg bg-slate-800/80 text-center border border-slate-700/50">
+                🚀 Logic Blitz
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Bottom Action Button Area -->
+        <div class="pt-4 pb-2 space-y-2">
+          <!-- Big Vibrant Primary CTA Button -->
+          <button 
+            id="startSprintBtn" 
+            class="btn-shine w-full py-4 px-6 rounded-2xl bg-gradient-to-r from-amber-500 via-orange-500 to-amber-500 bg-[length:200%_auto] hover:bg-right font-black text-slate-950 text-base sm:text-lg tracking-wide uppercase shadow-[0_12px_28px_-6px_rgba(245,158,11,0.55)] border-t border-amber-200/50 active:scale-[0.98] transition-all duration-200 flex items-center justify-center gap-2 group">
+            <span>Start 90-Second Sprint</span>
+            <span class="text-xl group-hover:translate-x-1 group-hover:-translate-y-0.5 transition-transform">🚀</span>
+          </button>
+          
+          <div class="text-center text-[11px] text-slate-400 flex items-center justify-center gap-1.5 font-medium">
+            <span class="w-1.5 h-1.5 rounded-full bg-emerald-400"></span>
+            Aarav's live session insights will sync with Mentor Rohan
+          </div>
+        </div>
+
+      </section>
+
+      <!-- ========================================================== -->
+      <!-- SCREEN 2: INTERACTIVE QUIZ SCREEN -->
+      <!-- ========================================================== -->
+      <section id="screen2" class="screen hidden flex-1 flex flex-col justify-between py-2 transition-all duration-300">
+        
+        <!-- Screen 2 Top Bar: Progress, Question Counter & 15s Countdown -->
+        <div class="space-y-3">
+          
+          <div class="flex items-center justify-between">
+            <!-- Question Step Pill -->
+            <div class="flex items-center gap-2 px-3 py-1.5 rounded-full bg-slate-800/90 border border-slate-700/80 shadow-sm">
+              <span class="w-2 h-2 rounded-full bg-amber-400 animate-pulse"></span>
+              <span id="questionCounter" class="text-xs font-black tracking-wide text-amber-300 font-sans uppercase">
+                Question 1 of 3
+              </span>
+            </div>
+
+            <!-- 15s Countdown Badge -->
+            <div id="timerBadge" class="flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-orange-500/15 border border-orange-500/40 text-orange-400 font-mono text-sm font-black shadow-sm transition-colors duration-300">
+              <span class="animate-spin text-xs">⏱️</span>
+              <span id="timerCountdown">15s</span>
+            </div>
+          </div>
+
+          <!-- Dynamic 15s Question Timer Progress Bar -->
+          <div class="relative w-full bg-slate-800/90 rounded-full h-2 overflow-hidden border border-slate-700/50">
+            <div id="timerBar" class="h-full bg-gradient-to-r from-amber-400 via-orange-500 to-amber-500 transition-all duration-1000 ease-linear rounded-full w-full"></div>
+          </div>
+
+          <!-- Overall Quiz Progress Dots -->
+          <div class="flex items-center justify-center gap-2 pt-1">
+            <div id="dot-0" class="w-8 h-1.5 rounded-full bg-amber-400 shadow-[0_0_8px_rgba(245,158,11,0.6)] transition-all duration-300"></div>
+            <div id="dot-1" class="w-8 h-1.5 rounded-full bg-slate-800 border border-slate-700 transition-all duration-300"></div>
+            <div id="dot-2" class="w-8 h-1.5 rounded-full bg-slate-800 border border-slate-700 transition-all duration-300"></div>
+          </div>
+
+        </div>
+
+        <!-- Center: Math Problem Box -->
+        <div class="my-auto py-4 space-y-4">
+          
+          <div class="glass-card relative rounded-3xl p-6 sm:p-7 border-amber-500/30 text-center shadow-[0_15px_35px_-10px_rgba(0,0,0,0.7)] overflow-hidden">
+            <!-- Background glow behind question -->
+            <div class="absolute -top-12 left-1/2 -translate-x-1/2 w-48 h-48 bg-gradient-to-b from-amber-500/15 to-transparent rounded-full blur-2xl pointer-events-none"></div>
+
+            <!-- Category tag -->
+            <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-slate-800/90 border border-amber-400/20 text-[10px] font-extrabold uppercase tracking-widest text-amber-400 mb-3 shadow-inner">
+              <span id="questionTagIcon">⚡</span>
+              <span id="questionCategory">Mental Math Sprint</span>
+            </div>
+
+            <!-- Problem Prompt -->
+            <div class="text-xs font-semibold text-slate-400 uppercase tracking-wider mb-1">
+              Calculate in your head
+            </div>
+
+            <!-- Large Bold Math Expression -->
+            <div id="mathProblemText" class="text-5xl sm:text-6xl font-black text-white tracking-tight leading-none my-2 drop-shadow-[0_4px_12px_rgba(0,0,0,0.5)]">
+              24 × 11
+            </div>
+
+            <div id="problemSubtext" class="text-xs text-slate-400 font-medium">
+              Tap the correct answer before time runs out!
+            </div>
+          </div>
+
+          <!-- 2x2 Grid of 4 Tappable Answer Buttons -->
+          <div id="optionsGrid" class="grid grid-cols-2 gap-3 pt-1">
+            <!-- Button 0 -->
+            <button class="option-btn group relative py-4 px-3 rounded-2xl bg-slate-800/90 hover:bg-slate-750 active:scale-95 border-2 border-slate-700/80 hover:border-amber-400/60 shadow-lg text-center transition-all duration-150 flex flex-col items-center justify-center">
+              <span class="option-val text-2xl font-black text-white group-hover:text-amber-300 transition-colors">244</span>
+            </button>
+            
+            <!-- Button 1 -->
+            <button class="option-btn group relative py-4 px-3 rounded-2xl bg-slate-800/90 hover:bg-slate-750 active:scale-95 border-2 border-slate-700/80 hover:border-amber-400/60 shadow-lg text-center transition-all duration-150 flex flex-col items-center justify-center">
+              <span class="option-val text-2xl font-black text-white group-hover:text-amber-300 transition-colors">264</span>
+            </button>
+            
+            <!-- Button 2 -->
+            <button class="option-btn group relative py-4 px-3 rounded-2xl bg-slate-800/90 hover:bg-slate-750 active:scale-95 border-2 border-slate-700/80 hover:border-amber-400/60 shadow-lg text-center transition-all duration-150 flex flex-col items-center justify-center">
+              <span class="option-val text-2xl font-black text-white group-hover:text-amber-300 transition-colors">284</span>
+            </button>
+            
+            <!-- Button 3 -->
+            <button class="option-btn group relative py-4 px-3 rounded-2xl bg-slate-800/90 hover:bg-slate-750 active:scale-95 border-2 border-slate-700/80 hover:border-amber-400/60 shadow-lg text-center transition-all duration-150 flex flex-col items-center justify-center">
+              <span class="option-val text-2xl font-black text-white group-hover:text-amber-300 transition-colors">254</span>
+            </button>
+          </div>
+
+        </div>
+
+        <!-- Screen 2 Bottom Status / Tip -->
+        <div class="pt-2 pb-1 text-center">
+          <div class="inline-flex items-center gap-1.5 text-[11px] font-medium text-slate-400">
+            <span>💡</span>
+            <span>Speed & Accuracy will calibrate Rohan Sir's live demo plan</span>
+          </div>
+        </div>
+
+      </section>
+
+      <!-- ========================================================== -->
+      <!-- SCREEN 3: DIAGNOSTIC REPORT (PRE-CLASS PROFILE) -->
+      <!-- ========================================================== -->
+      <section id="screen3" class="screen hidden flex-1 flex flex-col justify-between py-1 transition-all duration-300">
+        
+        <div class="space-y-3.5">
+          
+          <!-- Screen 3 Header -->
+          <div class="text-center space-y-1 pt-1">
+            <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-emerald-500/15 border border-emerald-500/30 text-emerald-400 text-[10px] font-extrabold uppercase tracking-wider mb-0.5 shadow-sm">
+              <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-ping"></span>
+              <span>Sprint Diagnostic Complete</span>
+            </div>
+            <h1 class="text-2xl sm:text-[26px] font-black tracking-tight text-white">
+              Aarav's <span class="text-gradient-fire">Pre-Class Profile</span>
+            </h1>
+            <p class="text-xs text-slate-300/80 font-medium">
+              Calibrated live for Saturday's session with Mentor Rohan
+            </p>
+          </div>
+
+          <!-- Visually Distinct SCORE CARD Box -->
+          <div class="glass-card relative rounded-3xl p-4 sm:p-5 border-2 border-amber-500/40 shadow-[0_16px_36px_-10px_rgba(245,158,11,0.25)] overflow-hidden">
+            <!-- Subtle background radial highlight -->
+            <div class="absolute -right-10 -top-10 w-40 h-40 bg-amber-500/10 rounded-full blur-2xl pointer-events-none"></div>
+
+            <!-- Score Card Header -->
+            <div class="flex items-center justify-between border-b border-slate-800 pb-3 mb-3">
+              <div class="flex items-center gap-2">
+                <span class="text-lg">⚡</span>
+                <span class="text-xs font-black tracking-wider text-slate-300 uppercase">Math Agility Index</span>
+              </div>
+              <span class="text-[10px] font-bold text-amber-400 bg-amber-400/10 border border-amber-400/20 px-2 py-0.5 rounded-full uppercase">
+                Grade 4 Calibrated
+              </span>
+            </div>
+
+            <!-- Big Main Index Display -->
+            <div class="flex items-baseline justify-between mb-3 px-1">
+              <div class="flex items-baseline gap-1.5">
+                <span class="text-4xl sm:text-5xl font-black text-white tracking-tight drop-shadow-md">84</span>
+                <span class="text-lg font-bold text-slate-400">/ 100</span>
+              </div>
+              <div class="text-right">
+                <div class="text-[11px] font-extrabold text-emerald-400 flex items-center justify-end gap-1">
+                  <span>🚀</span> High Velocity
+                </div>
+                <div class="text-[10px] text-slate-400 font-medium">Top 15% Agility</div>
+              </div>
+            </div>
+
+            <!-- Agility Progress Bar -->
+            <div class="w-full bg-slate-800 rounded-full h-2 mb-4 overflow-hidden border border-slate-700/60">
+              <div class="h-2 rounded-full bg-gradient-to-r from-amber-400 via-orange-500 to-emerald-400 w-[84%] shadow-[0_0_12px_rgba(245,158,11,0.8)]"></div>
+            </div>
+
+            <!-- Sub-Metrics Breakdown: Pattern Recognition & Bridging Shortcut -->
+            <div class="space-y-2 pt-1 border-t border-slate-800/80">
+              
+              <!-- Metric 1: Pattern Recognition -->
+              <div class="flex items-center justify-between p-2.5 rounded-xl bg-slate-800/60 border border-slate-700/50">
+                <div class="flex items-center gap-2">
+                  <span class="text-sm">🧩</span>
+                  <span class="text-xs font-bold text-slate-200">Pattern Recognition</span>
+                </div>
+                <!-- Fast (1.2s) in Green -->
+                <span class="px-2.5 py-1 rounded-lg bg-emerald-500/15 border border-emerald-500/40 text-emerald-400 text-xs font-black shadow-sm flex items-center gap-1">
+                  <span>⚡</span> Fast (1.2s)
+                </span>
+              </div>
+
+              <!-- Metric 2: Bridging Shortcut -->
+              <div class="flex items-center justify-between p-2.5 rounded-xl bg-slate-800/60 border border-slate-700/50">
+                <div class="flex items-center gap-2">
+                  <span class="text-sm">🎯</span>
+                  <span class="text-xs font-bold text-slate-200">Bridging Shortcut</span>
+                </div>
+                <!-- Needs Live Coaching in Red -->
+                <span class="px-2.5 py-1 rounded-lg bg-rose-500/15 border border-rose-500/40 text-rose-400 text-xs font-black shadow-sm flex items-center gap-1">
+                  <span>⚠️</span> Needs Live Coaching
+                </span>
+              </div>
+
+            </div>
+
+          </div>
+
+          <!-- CURIOSITY GAP Warning Box with Lock Icon 🔒 -->
+          <div class="relative rounded-2xl p-4 bg-gradient-to-br from-amber-500/15 via-slate-900/90 to-orange-600/15 border-2 border-amber-500/50 shadow-xl overflow-hidden">
+            <!-- Ambient Glow & Lock Watermark -->
+            <div class="absolute -right-4 -bottom-4 text-6xl text-amber-500/10 select-none pointer-events-none font-sans">
+              🔒
+            </div>
+
+            <!-- Header with Lock Badge -->
+            <div class="flex items-center gap-2 mb-2">
+              <div class="w-7 h-7 rounded-lg bg-amber-500/20 border border-amber-400/50 flex items-center justify-center text-sm shadow-sm flex-shrink-0 animate-pulse">
+                🔒
+              </div>
+              <span class="text-xs font-black tracking-wider uppercase text-amber-300 font-sans">
+                Rohan Sir's Diagnostic Note
+              </span>
+            </div>
+
+            <!-- Exact Required Copy -->
+            <p class="text-xs text-slate-200 leading-relaxed font-medium">
+              Rohan Sir has received your logs. The <span class="text-amber-300 font-bold underline decoration-amber-400/60 underline-offset-2">2-step shortcut</span> to fix your carry-over calculation will be revealed <span class="text-white font-extrabold bg-amber-500/20 px-1 py-0.5 rounded">LIVE</span> in Saturday's Demo Session (5:00 PM).
+            </p>
+
+            <div class="mt-3 pt-2.5 border-t border-amber-500/20 flex items-center justify-between text-[11px] text-amber-200/80">
+              <span class="flex items-center gap-1">
+                <span>👨🏻‍🏫</span> Mentor Rohan • Bhanzu Senior Faculty
+              </span>
+              <span class="font-bold text-amber-400">Sat, 5:00 PM</span>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Confirmation Action Button Area -->
+        <div class="pt-3 pb-2 space-y-2">
+          
+          <!-- Final Confirmation Button -->
+          <button 
+            id="confirmSeatBtn" 
+            class="btn-shine w-full py-4 px-5 rounded-2xl bg-gradient-to-r from-amber-500 via-orange-500 to-amber-500 bg-[length:200%_auto] hover:bg-right font-black text-slate-950 text-base sm:text-lg tracking-wide uppercase shadow-[0_12px_28px_-6px_rgba(245,158,11,0.55)] border-t border-amber-200/50 active:scale-[0.98] transition-all duration-300 flex items-center justify-center gap-2 group cursor-pointer">
+            <span id="confirmBtnIcon">✅</span>
+            <span id="confirmBtnText">Confirm Aarav's Seat on Live Roster</span>
+          </button>
+
+          <!-- Retake Sprint link for interactive prototype demo -->
+          <div class="flex items-center justify-between px-2 pt-1">
+            <button id="restartSprintBtn" class="text-[11px] font-bold text-slate-400 hover:text-amber-400 flex items-center gap-1 transition">
+              <span>↻</span> Retake Sprint Demo
+            </button>
+            <span class="text-[10px] text-slate-500 font-medium">100% Free Live Masterclass</span>
+          </div>
+
+        </div>
+
+      </section>
+
+    </main>
+
+    <!-- FLOATING SUCCESS TOAST NOTIFICATION -->
+    <div id="successToast" class="fixed top-6 left-1/2 -translate-x-1/2 w-[90%] max-w-sm pointer-events-none opacity-0 -translate-y-4 transition-all duration-400 z-50">
+      <div class="glass-card rounded-2xl p-4 bg-slate-900/95 border-2 border-emerald-400/80 shadow-[0_20px_40px_rgba(0,0,0,0.8)] flex items-start gap-3">
+        <div class="w-10 h-10 rounded-xl bg-emerald-500/20 border border-emerald-400 flex items-center justify-center text-xl flex-shrink-0 animate-bounce">
+          🎉
+        </div>
+        <div class="flex-1 min-w-0">
+          <div class="text-xs font-black uppercase tracking-wider text-emerald-400 mb-0.5">
+            Seat Successfully Confirmed!
+          </div>
+          <div class="text-xs text-slate-200 leading-snug">
+            Aarav is officially registered on Mentor Rohan's Live Roster for <strong class="text-white">Saturday at 5:00 PM</strong>!
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Interactive Logic -->
+  <script>
+    // Screen Elements
+    const screen1 = document.getElementById('screen1');
+    const screen2 = document.getElementById('screen2');
+    const screen3 = document.getElementById('screen3');
+    
+    // Screen 1 Buttons
+    const startSprintBtn = document.getElementById('startSprintBtn');
+    const audioToggleBtn = document.getElementById('audioToggleBtn');
+
+    // Screen 2 Quiz Elements
+    const questionCounter = document.getElementById('questionCounter');
+    const timerCountdown = document.getElementById('timerCountdown');
+    const timerBadge = document.getElementById('timerBadge');
+    const timerBar = document.getElementById('timerBar');
+    const mathProblemText = document.getElementById('mathProblemText');
+    const questionCategory = document.getElementById('questionCategory');
+    const questionTagIcon = document.getElementById('questionTagIcon');
+    const optionsGrid = document.getElementById('optionsGrid');
+    const optionBtns = optionsGrid.querySelectorAll('.option-btn');
+
+    // Screen 3 Elements
+    const confirmSeatBtn = document.getElementById('confirmSeatBtn');
+    const confirmBtnIcon = document.getElementById('confirmBtnIcon');
+    const confirmBtnText = document.getElementById('confirmBtnText');
+    const restartSprintBtn = document.getElementById('restartSprintBtn');
+    const successToast = document.getElementById('successToast');
+
+    // Quiz Questions Data Structure
+    const questions = [
+      {
+        text: "24 × 11",
+        options: [244, 264, 284, 254],
+        answer: 264,
+        category: "11's Vedic Multiplication",
+        icon: "⚡"
+      },
+      {
+        text: "48 + 37",
+        options: [85, 75, 95, 83],
+        answer: 85,
+        category: "Mental Addition Sprint",
+        icon: "➕"
+      },
+      {
+        text: "98 × 5",
+        options: [480, 490, 510, 495],
+        answer: 490,
+        category: "Half-and-Ten Shortcut",
+        icon: "🚀"
+      }
+    ];
+
+    let currentQuestionIndex = 0;
+    let timerInterval = null;
+    let timeLeft = 15;
+    const QUESTION_TIME = 15;
+    let isTransitioning = false;
+    let userResponses = [];
+
+    // Screen Transitions Helper
+    function switchScreen(fromScreen, toScreen, callback) {
+      fromScreen.style.opacity = '0';
+      fromScreen.style.transform = 'scale(0.96)';
+
+      setTimeout(() => {
+        fromScreen.classList.add('hidden');
+        toScreen.classList.remove('hidden');
+        toScreen.style.opacity = '0';
+        toScreen.style.transform = 'scale(1.04)';
+
+        // Force reflow
+        void toScreen.offsetWidth;
+
+        toScreen.style.opacity = '1';
+        toScreen.style.transform = 'scale(1)';
+
+        if (callback) callback();
+      }, 220);
+    }
+
+    // Audio / Haptic feedback helper
+    let isMuted = false;
+    function triggerFeedback(type = 'click') {
+      if (navigator.vibrate) {
+        if (type === 'timeout') navigator.vibrate([40, 60, 40]);
+        else if (type === 'success') navigator.vibrate([50, 100, 50, 100, 50]);
+        else navigator.vibrate(25);
+      }
+    }
+
+    // Start Question Timer
+    function startQuestionTimer() {
+      clearInterval(timerInterval);
+      timeLeft = QUESTION_TIME;
+      updateTimerUI();
+
+      timerInterval = setInterval(() => {
+        timeLeft--;
+        updateTimerUI();
+
+        if (timeLeft <= 0) {
+          clearInterval(timerInterval);
+          handleTimeout();
+        }
+      }, 1000);
+    }
+
+    function updateTimerUI() {
+      timerCountdown.textContent = `${timeLeft}s`;
+      const pct = (timeLeft / QUESTION_TIME) * 100;
+      timerBar.style.width = `${pct}%`;
+
+      if (timeLeft <= 5) {
+        timerBadge.classList.remove('bg-orange-500/15', 'border-orange-500/40', 'text-orange-400');
+        timerBadge.classList.add('bg-red-500/20', 'border-red-500/50', 'text-red-400');
+        timerBar.classList.remove('from-amber-400', 'via-orange-500', 'to-amber-500');
+        timerBar.classList.add('from-red-500', 'to-rose-600');
+      } else {
+        timerBadge.classList.remove('bg-red-500/20', 'border-red-500/50', 'text-red-400');
+        timerBadge.classList.add('bg-orange-500/15', 'border-orange-500/40', 'text-orange-400');
+        timerBar.classList.remove('from-red-500', 'to-rose-600');
+        timerBar.classList.add('from-amber-400', 'via-orange-500', 'to-amber-500');
+      }
+    }
+
+    // Render Question
+    function renderQuestion(index) {
+      isTransitioning = false;
+      const q = questions[index];
+
+      questionCounter.textContent = `Question ${index + 1} of ${questions.length}`;
+      questionCategory.textContent = q.category;
+      questionTagIcon.textContent = q.icon;
+      mathProblemText.textContent = q.text;
+
+      // Update dot indicators
+      for (let i = 0; i < 3; i++) {
+        const dot = document.getElementById(`dot-${i}`);
+        if (!dot) continue;
+        if (i < index) {
+          dot.className = "w-8 h-1.5 rounded-full bg-emerald-400 shadow-[0_0_8px_rgba(52,211,153,0.6)] transition-all duration-300";
+        } else if (i === index) {
+          dot.className = "w-8 h-1.5 rounded-full bg-amber-400 shadow-[0_0_8px_rgba(245,158,11,0.6)] transition-all duration-300";
+        } else {
+          dot.className = "w-8 h-1.5 rounded-full bg-slate-800 border border-slate-700 transition-all duration-300";
+        }
+      }
+
+      // Populate options
+      optionBtns.forEach((btn, optIdx) => {
+        const valSpan = btn.querySelector('.option-val');
+        valSpan.textContent = q.options[optIdx];
+        
+        btn.disabled = false;
+        btn.className = "option-btn group relative py-4 px-3 rounded-2xl bg-slate-800/90 hover:bg-slate-750 active:scale-95 border-2 border-slate-700/80 hover:border-amber-400/60 shadow-lg text-center transition-all duration-150 flex flex-col items-center justify-center cursor-pointer";
+        valSpan.className = "option-val text-2xl font-black text-white group-hover:text-amber-300 transition-colors";
+      });
+
+      startQuestionTimer();
+    }
+
+    // Handle Option Selection
+    function selectOption(selectedVal, selectedBtn) {
+      if (isTransitioning) return;
+      isTransitioning = true;
+      clearInterval(timerInterval);
+      triggerFeedback('click');
+
+      const currentQ = questions[currentQuestionIndex];
+      const isCorrect = (selectedVal === currentQ.answer);
+
+      userResponses.push({
+        questionIndex: currentQuestionIndex,
+        selected: selectedVal,
+        correct: isCorrect,
+        timeTaken: QUESTION_TIME - timeLeft
+      });
+
+      // Visual feedback on selected button
+      selectedBtn.classList.remove('border-slate-700/80', 'bg-slate-800/90');
+      selectedBtn.classList.add('border-amber-400', 'bg-amber-500/20', 'scale-[0.98]', 'shadow-[0_0_20px_rgba(245,158,11,0.4)]');
+      
+      const valSpan = selectedBtn.querySelector('.option-val');
+      valSpan.classList.add('text-amber-300');
+
+      optionBtns.forEach(btn => {
+        if (btn !== selectedBtn) {
+          btn.disabled = true;
+          btn.style.opacity = '0.5';
+        }
+      });
+
+      setTimeout(() => {
+        advanceNextQuestion();
+      }, 350);
+    }
+
+    // Handle Timeout
+    function handleTimeout() {
+      if (isTransitioning) return;
+      isTransitioning = true;
+      triggerFeedback('timeout');
+
+      userResponses.push({
+        questionIndex: currentQuestionIndex,
+        selected: null,
+        correct: false,
+        timeTaken: QUESTION_TIME
+      });
+
+      mathProblemText.classList.add('text-red-400');
+      setTimeout(() => {
+        mathProblemText.classList.remove('text-red-400');
+        advanceNextQuestion();
+      }, 400);
+    }
+
+    // Advance to next question or to Screen 3
+    function advanceNextQuestion() {
+      currentQuestionIndex++;
+      if (currentQuestionIndex < questions.length) {
+        const card = screen2.querySelector('.glass-card');
+        card.style.opacity = '0.4';
+        card.style.transform = 'translateY(6px)';
+
+        setTimeout(() => {
+          renderQuestion(currentQuestionIndex);
+          card.style.opacity = '1';
+          card.style.transform = 'translateY(0px)';
+        }, 150);
+      } else {
+        // Quiz complete! Show Screen 3
+        clearInterval(timerInterval);
+        switchScreen(screen2, screen3);
+      }
+    }
+
+    // Attach click listeners to 2x2 option buttons
+    optionBtns.forEach((btn) => {
+      btn.addEventListener('click', () => {
+        const valSpan = btn.querySelector('.option-val');
+        const selectedVal = parseInt(valSpan.textContent, 10);
+        selectOption(selectedVal, btn);
+      });
+    });
+
+    // Start Button clicked on Screen 1
+    startSprintBtn.addEventListener('click', () => {
+      triggerFeedback('click');
+      currentQuestionIndex = 0;
+      userResponses = [];
+      switchScreen(screen1, screen2, () => {
+        renderQuestion(0);
+      });
+    });
+
+    // SCREEN 3: Confirm Seat Button Interaction
+    confirmSeatBtn.addEventListener('click', () => {
+      triggerFeedback('success');
+
+      // 1. Change button to disabled state
+      confirmSeatBtn.disabled = true;
+      confirmSeatBtn.classList.remove(
+        'from-amber-500', 'via-orange-500', 'to-amber-500',
+        'hover:bg-right', 'active:scale-[0.98]', 'cursor-pointer', 'btn-shine'
+      );
+      confirmSeatBtn.classList.add(
+        'bg-emerald-600', 'border-emerald-400/80',
+        'cursor-not-allowed', 'opacity-90', 'shadow-[0_8px_20px_rgba(16,185,129,0.35)]'
+      );
+
+      confirmBtnIcon.textContent = '🎉';
+      confirmBtnText.textContent = 'Seat Successfully Confirmed!';
+
+      // 2. Show Success Toast
+      showSuccessToast();
+    });
+
+    function showSuccessToast() {
+      successToast.classList.remove('opacity-0', '-translate-y-4', 'pointer-events-none');
+      successToast.classList.add('opacity-100', 'translate-y-0');
+
+      // Auto-hide toast after 4.5 seconds
+      setTimeout(() => {
+        successToast.classList.remove('opacity-100', 'translate-y-0');
+        successToast.classList.add('opacity-0', '-translate-y-4', 'pointer-events-none');
+      }, 4500);
+    }
+
+    // Retake Sprint Demo Button
+    restartSprintBtn.addEventListener('click', () => {
+      // Reset Screen 3 button state
+      confirmSeatBtn.disabled = false;
+      confirmSeatBtn.className = "btn-shine w-full py-4 px-5 rounded-2xl bg-gradient-to-r from-amber-500 via-orange-500 to-amber-500 bg-[length:200%_auto] hover:bg-right font-black text-slate-950 text-base sm:text-lg tracking-wide uppercase shadow-[0_12px_28px_-6px_rgba(245,158,11,0.55)] border-t border-amber-200/50 active:scale-[0.98] transition-all duration-300 flex items-center justify-center gap-2 group cursor-pointer";
+      confirmBtnIcon.textContent = '✅';
+      confirmBtnText.textContent = "Confirm Aarav's Seat on Live Roster";
+
+      currentQuestionIndex = 0;
+      userResponses = [];
+      switchScreen(screen3, screen1);
+    });
+
+    // Sound toggle visual feedback
+    audioToggleBtn.addEventListener('click', () => {
+      isMuted = !isMuted;
+      audioToggleBtn.innerHTML = isMuted 
+        ? `<svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 text-slate-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5.586 15H4a1 1 0 01-1-1v-4a1 1 0 011-1h1.586l4.707-4.707C10.923 3.663 12 4.109 12 5v14c0 .891-1.077 1.337-1.707.707L5.586 15z" />
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2" />
+          </svg>`
+        : `<svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 text-amber-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.536 8.464a5 5 0 010 7.072m2.828-9.9a9 9 0 010 12.728M5.586 15H4a1 1 0 01-1-1v-4a1 1 0 011-1h1.586l4.707-4.707C10.923 3.663 12 4.109 12 5v14c0 .891-1.077 1.337-1.707.707L5.586 15z" />
+          </svg>`;
+    });
+  </script>
+</body>
+</html>
