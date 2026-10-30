@@ -1,0 +1,112 @@
+Prompt 1: The Core Framework & Screen 1
+
+Act as an expert Frontend Engineer and UX Designer. I am building a mobile-first, interactive micro-experience for an EdTech company called Bhanzu. 
+The goal is to gamify a 90-second math diagnostic for a 9-year-old child on a smartphone. 
+
+Create a single-file HTML/JS/Tailwind CSS prototype. 
+Design Guidelines: Use a dark mode theme (slate-900), vibrant orange/amber accents for energy, and bold, readable fonts. Make it look like a high-end mobile app, not a boring school test.
+
+Build Screen 1 (Welcome Screen):
+- Title: "Aarav's Math Agility Test"
+- Subtitle: "Solve 3 quick mental math challenges before Saturday's session with Mentor Rohan!"
+- A badge showing "Target: Grade 4 Benchmark" and "⏱️ 60 Seconds"
+- A large, vibrant primary button: "Start 90-Second Sprint 🚀"
+- When the button is clicked, hide Screen 1 and show Screen 2 (which we will build next).
+
+
+Prompt 2: Screen 2 (The Interactive Quiz)
+
+Now add Screen 2 (The Quiz Screen) to the same file, hidden by default. 
+When the user clicks "Start" on Screen 1, this screen should appear.
+
+Requirements for Screen 2:
+- A top bar showing "Question 1 of 3" and a countdown badge starting at 15s.
+- A large, bold math problem in the center (e.g., "24 × 11").
+- A 2x2 grid of 4 tappable answer buttons.
+- Write a simple JS script to handle a 3-question array:
+  1. "24 × 11" (Options: 244, 264, 284, 254)
+  2. "48 + 37" (Options: 85, 75, 95, 83)
+  3. "98 × 5" (Options: 480, 490, 510, 495)
+- Every time an answer is clicked, or the 15-second timer runs out, load the next question.
+- After the 3rd question, hide Screen 2 and show Screen 3 (which we will build next).
+
+
+Prompt 3: Screen 3 (The Teaser & Confirmation)
+
+Finally, add Screen 3 (The Diagnostic Report) to the same file.
+
+Requirements for Screen 3:
+- Title: "Aarav's Pre-Class Profile"
+- A visually distinct "Score Card" box showing:
+  - Math Agility Index: 84 / 100
+  - Pattern Recognition: Fast (1.2s) in green.
+  - Bridging Shortcut: "Needs Live Coaching" in red.
+- A "Curiosity Gap" warning box with a lock icon 🔒: 
+  "Rohan Sir has received your logs. The 2-step shortcut to fix your carry-over calculation will be revealed LIVE in Saturday's Demo Session (5:00 PM)."
+- A final confirmation button: "✅ Confirm Aarav's Seat on Live Roster"
+- When clicked, change the button to a disabled state saying "Seat Successfully Confirmed!" and show a success toast.
+
+Prompt 4 :Rewrite `index.html` as a complete, production-ready, mobile-first single-file web application (HTML5 + Tailwind CSS CDN + Vanilla JavaScript) for the "Bhanzu Speed-Math Lab" pre-demo diagnostic micro-experience.
+
+### Core UI & Design System
+- Dark-mode slate/navy theme (`bg-slate-950`), mobile card viewport (`max-w-md mx-auto bg-slate-900 border border-slate-800 rounded-3xl p-5 shadow-2xl`).
+- Google Font: 'Plus Jakarta Sans' or 'Poppins'.
+- Sticky Top Bar inside the card containing:
+  1. Left: Mentor Badge (`👨‍🏫 Rohan Sir • IIT Alumni Mentor`).
+  2. Right: 1-Tap Bilingual Language Toggle (`🇬🇧 EN | 🇮🇳 हिंदी`) that calls `toggleLanguage()` and dynamically switches all UI text on every screen between simple parent-friendly English and warm conversational Hindi/Hinglish.
+
+### Screen 1: Welcome, Trust SLAs & Child Handover (`#screen-welcome`)
+- Status Pill: `⚡ Live Demo Calibration • Saturday, 5:00 PM` (HI: `⚡ लाइव डेमो कैलिब्रेशन • शनिवार, शाम 5:00 बजे`).
+- Title: `Aarav's 90-Second Math Superpower Test` (HI: `आरव का 90-सेकंड मैथ सुपरपावर टेस्ट`).
+- Subtitle: `Hand the phone to Aarav! Let's check his speed & logical IQ baseline before his live session with Rohan Sir.` (HI: `फ़ोन आरव को दें! रोहन सर के साथ लाइव क्लास से पहले उसकी मैथ स्पीड और लॉजिकल IQ चेक करें।`).
+- Grade Pill Selector (interactive selection): `Grade 1-2` | `Grade 3-4 (Active)` | `Grade 5-6` | `Grade 7-8`.
+- "Bhanzu 3-Point Parent Promise" Trust Box (solves EdTech PTSD):
+  - `👥 Strict 1:4 Batch Guarantee (Never 8 kids)` (HI: `👥 केवल 4 बच्चों का बैच (कभी 8 बच्चे नहीं)`)
+  - `⏱️ 4:55 PM On-Time Teacher SLA` (HI: `⏱️ 4:55 PM समय पर क्लास की गारंटी`)
+  - `🛡️ 100% Free • Zero Financial Pressure` (HI: `🛡️ 100% मुफ़्त • कोई सेल्स दबाव नहीं`)
+- Primary CTA Button: `Start 90-Second Math Sprint 🚀` (HI: `90-सेकंड मैथ टेस्ट शुरू करें 🚀`).
+- Late-Night / Child Asleep Fallback Button (Assumption #1 Mitigation):
+  - Subtle link button below CTA: `🌙 Is Aarav asleep or at school right now? Schedule 4:30 PM WhatsApp Reminder` (HI: `🌙 क्या आरव अभी सो रहा है या स्कूल में है? कल शाम 4:30 बजे रिमाइंडर भेजें`).
+  - Clicking reveals an inline confirmation banner: `✅ Done! We will send Aarav's quiz link to your WhatsApp tomorrow at 4:30 PM post-school hours.`
+
+### Screen 2: 3-Question Gamified Sprint (`#screen-quiz`)
+- Top progress bar + Question Counter (`Question 1 of 3`) + 15-second countdown badge (`15s`).
+- Track real response latency in seconds (to 1 decimal place, e.g., `4.2s`) for each question using `performance.now()`.
+- 3 Engineered Questions:
+  1. Q1 (Pattern & Visual IQ): `150 + 150 + 50 = ?` | Options: `300`, `350`, `400`, `250` (Correct: `350`).
+  2. Q2 (The School Carry-Over Bottleneck): `48 + 37 = ?` | Options: `75`, `85`, `95`, `83` (Correct: `85`).
+  3. Q3 (The Bhanzu 11s Magic Hook): `24 × 11 = ?` | Options: `244`, `264`, `284`, `254` (Correct: `264`).
+
+### Screen 3: Peer-Benchmarked Scorecard, Future IQ Value & Seat Lock (`#screen-report`)
+- Floor the score at a minimum of `78/100` (default display: `84/100`) so no child or parent feels demotivated.
+- **Peer Benchmark Header Card:**
+  - Score: `84 / 100`
+  - Peer Rank Badge: `🏆 Faster than 82% of first-time Grade 4 students!` (HI: `🏆 ग्रेड 4 के 82% बच्चों से तेज़!`).
+- **3-Row Diagnostic Breakdown:**
+  1. `Pattern & Visual Logic:` `Fast (1.8s) ⚡` (Emerald green)
+  2. `Carry-Over Addition (48 + 37):` `[Actual Q2 time or 4.2s] vs 1.2s Bhanzu Target ⚠️` (Rose/Amber — subtext: `"School finger/carry-over habit slows him down"`).
+  3. `24 × 11 Speed Shortcut:` `🔒 Locked for Saturday's Demo` (Amber).
+- **"Why This Matters for Aarav's Future IQ & Logic" Card (Plain-Language Parent Value):**
+  - Header: `🧠 How This Boosts School Exams, Logic & IQ` (HI: `🧠 यह स्कूल परीक्षा और IQ में कैसे मदद करता है?`)
+  - Copy: `"Right now, 80% of Aarav's brainpower gets tired just doing carry-over counting. Once Rohan Sir automates his calculation speed, 100% of his brain frees up to master Word Problems, Olympiad Logic, and High-IQ STEM concepts—while cutting daily homework time from 60 mins to 15 mins!"` (Include full Hindi translation in toggle).
+- **The Zeigarnik Curiosity Gap Hook (Amber Border Box):**
+  - Header: `🔒 Secret 2-Second Trick for 24 × 11 (Unlocked Live in Demo)`
+  - Copy: `"Rohan Sir has received Aarav's scorecard. In the first 10 minutes of Saturday's 5:00 PM class, he will teach Aarav how to solve 24 × 11 in 1.5 seconds without pen or paper!"`
+- **Action Buttons:**
+  1. Primary CTA: `✅ Confirm Attendance & Lock Aarav's Seat` (Changes state to `🎉 Seat Locked on Rohan Sir's Live Roster! Calendar Updated.`).
+  2. Secondary CTA (Dual-Parent Sync): `📲 Share Scorecard & Class Link with Spouse (WhatsApp)` (Opens `https://wa.me/?text=...` with pre-populated message for the father/mother).
+
+### Screen 3 Footer: Collapsible "👁️ Reviewer / AC CRM Telemetry Drawer"
+- Add a collapsible toggle button at the bottom of Screen 3: `🛠️ [For Reviewers] View Teacher & Academic Counsellor (AC) Backend Log`.
+- When clicked, toggle open a dark code/CRM panel displaying:
+  1. **Real-Time JSON Payload sent to CRM:** Show student name, grade, language selected, Q1/Q2/Q3 latency, peer percentile (`82%`), identified bottleneck (`Carry-over addition delay`), and `seat_locked: true`.
+  2. **Auto-Generated Academic Counsellor (AC) Post-Class Script:**
+     `"Priya ji, in the pre-class Speed Lab Aarav took 4.2s on carry-over math, and in just 15 mins with Rohan Sir today he dropped that to 1.5s! Over 12 weeks, we automate calculation across his syllabus so 100% of his brain focuses on logical IQ and word problems. You can start with an easy monthly plan backed by our 14-day 100% refund guarantee."`
+
+
+Prompt 5:
+Keep my existing `index.html` structure and styling intact, but add these 4 incremental upgrades:
+1. Add a `🇬🇧 EN | 🇮🇳 हिंदी` toggle button in the top-right header that switches all text between English and simple Hindi/Hinglish.
+2. On the Welcome screen, add a 3-badge trust strip (`👥 Max 4 Kids/Batch • ⏱️ 4:55 PM On-Time SLA • 🛡️ Zero Sales Pressure`) and a small link at the bottom: `"🌙 Is Aarav asleep/at school? Send 4:30 PM WhatsApp Reminder"` that shows an inline confirmation message when clicked.
+3. On the Results Scorecard, add an emerald-tinted info card titled `"🧠 Why This Matters for Aarav's Future IQ & Exams"` explaining in simple words: `"Right now, 80% of Aarav's brainpower gets tired doing carry-over counting. Automating calculation frees 100% of his brain for Word Problems, Olympiad Logic, and STEM—while cutting daily homework time in half!"` Also add a secondary button to share the scorecard & class link with the spouse on WhatsApp.
+4. At the bottom of the Results Scorecard, add a collapsible button `"🛠️ [For Reviewers] View Teacher & AC CRM Handover Log"` that expands to show the live JSON telemetry and the Academic Counsellor's post-demo closing script.
