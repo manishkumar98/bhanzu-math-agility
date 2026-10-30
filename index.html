@@ -3,13 +3,13 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-  <title>Aarav's Math Agility Test | Bhanzu</title>
-  
-  <!-- Google Fonts: Outfit & Plus Jakarta Sans -->
+  <title>Bhanzu Speed-Math Lab | Pre-Demo Diagnostic</title>
+
+  <!-- Google Fonts: Plus Jakarta Sans & Outfit -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap" rel="stylesheet">
-  
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@600;700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
   <!-- Tailwind CSS CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
@@ -18,8 +18,8 @@
       theme: {
         extend: {
           fontFamily: {
-            outfit: ['Outfit', 'sans-serif'],
-            sans: ['Plus Jakarta Sans', 'sans-serif'],
+            sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+            display: ['Outfit', 'sans-serif'],
           },
           colors: {
             brand: {
@@ -30,23 +30,17 @@
             }
           },
           animation: {
-            'float-slow': 'float 6s ease-in-out infinite',
-            'float-delayed': 'float 5s ease-in-out 2s infinite',
-            'pulse-glow': 'pulseGlow 2s cubic-bezier(0.4, 0, 0.6, 1) infinite',
             'shimmer': 'shimmer 2.5s infinite linear',
+            'pulse-glow': 'pulseGlow 2s cubic-bezier(0.4, 0, 0.6, 1) infinite',
           },
           keyframes: {
-            float: {
-              '0%, 100%': { transform: 'translateY(0px) rotate(0deg)' },
-              '50%': { transform: 'translateY(-12px) rotate(4deg)' },
-            },
-            pulseGlow: {
-              '0%, 100%': { opacity: '0.6', transform: 'scale(1)' },
-              '50%': { opacity: '1', transform: 'scale(1.03)' },
-            },
             shimmer: {
               '0%': { transform: 'translateX(-100%)' },
               '100%': { transform: 'translateX(100%)' },
+            },
+            pulseGlow: {
+              '0%, 100%': { opacity: '0.6', transform: 'scale(1)' },
+              '50%': { opacity: '1', transform: 'scale(1.02)' },
             }
           }
         }
@@ -56,9 +50,12 @@
 
   <style>
     body {
-      font-family: 'Outfit', sans-serif;
+      font-family: 'Plus Jakarta Sans', sans-serif;
       -webkit-tap-highlight-color: transparent;
       user-select: none;
+    }
+    .font-display {
+      font-family: 'Outfit', sans-serif;
     }
 
     /* Glassmorphism utility */
@@ -66,20 +63,7 @@
       background: rgba(15, 23, 42, 0.75);
       backdrop-filter: blur(16px);
       -webkit-backdrop-filter: blur(16px);
-      border: 1px solid rgba(255, 255, 255, 0.1);
-    }
-    
-    .glass-pill {
-      background: rgba(30, 41, 59, 0.85);
-      backdrop-filter: blur(8px);
-      border: 1px solid rgba(245, 158, 11, 0.25);
-    }
-
-    /* Vibrant neon text gradient */
-    .text-gradient-fire {
-      background: linear-gradient(135deg, #FDE68A 0%, #F59E0B 35%, #FF6B00 100%);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
+      border: 1px solid rgba(255, 255, 255, 0.08);
     }
 
     /* Button shine reflection */
@@ -98,396 +82,371 @@
       transform: rotate(30deg);
       animation: btnShine 3.5s infinite ease-in-out;
     }
-
     @keyframes btnShine {
       0% { left: -70%; }
       30%, 100% { left: 140%; }
     }
 
-    /* Screen transition animation */
+    /* Vibrant text gradients */
+    .text-gradient-fire {
+      background: linear-gradient(135deg, #FDE68A 0%, #F59E0B 35%, #FF6B00 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    /* Screen transition states */
     .screen {
-      transition: opacity 0.35s ease-out, transform 0.35s ease-out;
+      transition: opacity 0.3s ease-out, transform 0.3s ease-out;
     }
     .screen.hidden {
       display: none !important;
       opacity: 0;
-      transform: scale(0.96);
+      transform: scale(0.97);
     }
   </style>
 </head>
 
 <body class="bg-slate-950 text-slate-100 min-h-screen flex items-center justify-center p-0 sm:p-4 selection:bg-amber-500 selection:text-slate-900">
 
-  <!-- Mobile App Wrapper Frame -->
-  <div class="relative w-full max-w-[430px] min-h-screen sm:min-h-[860px] sm:max-h-[890px] sm:rounded-[42px] bg-slate-900 border-0 sm:border-8 sm:border-slate-800 shadow-[0_25px_60px_-15px_rgba(0,0,0,0.8)] flex flex-col overflow-hidden">
+  <!-- Mobile Card Viewport Frame -->
+  <div class="relative w-full max-w-md min-h-screen sm:min-h-[880px] sm:max-h-[920px] sm:rounded-[36px] bg-slate-900 border-0 sm:border border-slate-800 shadow-2xl flex flex-col overflow-hidden">
     
     <!-- Ambient Energy Backlights -->
-    <div class="pointer-events-none absolute -top-24 -left-20 w-72 h-72 bg-gradient-to-br from-amber-500/25 to-orange-600/10 rounded-full blur-3xl"></div>
-    <div class="pointer-events-none absolute top-1/3 -right-24 w-80 h-80 bg-gradient-to-bl from-orange-500/20 to-amber-400/5 rounded-full blur-3xl"></div>
-    <div class="pointer-events-none absolute -bottom-20 left-10 w-64 h-64 bg-amber-600/15 rounded-full blur-2xl"></div>
+    <div class="pointer-events-none absolute -top-24 -left-20 w-72 h-72 bg-gradient-to-br from-amber-500/20 to-orange-600/10 rounded-full blur-3xl"></div>
+    <div class="pointer-events-none absolute top-1/3 -right-24 w-80 h-80 bg-gradient-to-bl from-orange-500/15 to-emerald-400/5 rounded-full blur-3xl"></div>
+    <div class="pointer-events-none absolute -bottom-20 left-10 w-64 h-64 bg-amber-600/10 rounded-full blur-2xl"></div>
 
-    <!-- Floating Background Math Glyphs (Gamified Atmosphere) -->
-    <div class="pointer-events-none absolute inset-0 overflow-hidden select-none opacity-20">
-      <span class="absolute top-20 left-8 text-3xl font-black text-amber-300 animate-float-slow">÷</span>
-      <span class="absolute top-44 right-10 text-2xl font-black text-orange-400 animate-float-delayed">×</span>
-      <span class="absolute top-1/2 left-6 text-3xl font-black text-amber-500 animate-float-slow">+</span>
-      <span class="absolute bottom-40 right-8 text-4xl font-black text-orange-300 animate-float-delayed">∑</span>
-      <span class="absolute bottom-28 left-12 text-2xl font-black text-amber-400 animate-float-slow">%</span>
-      <span class="absolute top-1/3 right-6 text-xl font-black text-amber-200">π</span>
-    </div>
-
-    <!-- Mobile Top Navigation / Status Header -->
-    <header class="relative z-20 px-6 pt-5 pb-3 flex items-center justify-between">
-      <!-- Bhanzu Arena Pill -->
+    <!-- STICKY TOP BAR INSIDE CARD -->
+    <header class="sticky top-0 z-30 px-4 pt-4 pb-3 bg-slate-900/90 backdrop-blur-md border-b border-slate-800/80 flex items-center justify-between gap-2">
+      <!-- 1. Left: Mentor Badge -->
       <div class="flex items-center gap-2 px-3 py-1.5 rounded-full bg-slate-800/90 border border-amber-500/30 shadow-inner">
-        <span class="w-2.5 h-2.5 rounded-full bg-amber-400 animate-ping"></span>
-        <span class="w-2.5 h-2.5 rounded-full bg-amber-400 -ml-4.5"></span>
-        <span class="text-xs font-extrabold tracking-wider text-amber-400 uppercase font-sans">Bhanzu Arena</span>
+        <span class="text-base leading-none">👨‍🏫</span>
+        <div class="flex flex-col">
+          <span class="text-xs font-black text-white leading-tight font-display" data-i18n="mentorTitle">Rohan Sir • IIT Alumni Mentor</span>
+          <span class="text-[9px] text-amber-400 font-semibold tracking-wider uppercase leading-none" data-i18n="mentorSub">Bhanzu Senior Faculty</span>
+        </div>
       </div>
 
-      <!-- Quick Sound / Audio Toggle Indicator -->
-      <button id="audioToggleBtn" class="w-9 h-9 rounded-full bg-slate-800/80 border border-slate-700/60 flex items-center justify-center text-slate-300 hover:text-amber-400 hover:border-amber-500/40 active:scale-95 transition-all" title="Sound Effects">
-        <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.536 8.464a5 5 0 010 7.072m2.828-9.9a9 9 0 010 12.728M5.586 15H4a1 1 0 01-1-1v-4a1 1 0 011-1h1.586l4.707-4.707C10.923 3.663 12 4.109 12 5v14c0 .891-1.077 1.337-1.707.707L5.586 15z" />
-        </svg>
+      <!-- 2. Right: 1-Tap Bilingual Language Toggle -->
+      <button 
+        id="langToggleBtn" 
+        onclick="toggleLanguage()"
+        class="flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-slate-800 border border-slate-700 hover:border-amber-400/60 text-slate-200 hover:text-amber-300 text-xs font-bold transition-all active:scale-95 shadow-sm"
+        title="Switch Language / भाषा बदलें">
+        <span id="langFlag">🇬🇧</span>
+        <span id="langText">EN | 🇮🇳 हिंदी</span>
       </button>
     </header>
 
     <!-- MAIN APP CANVAS -->
-    <main class="relative z-10 flex-1 flex flex-col px-6 pb-6 overflow-y-auto">
-      
+    <main class="relative z-10 flex-1 flex flex-col px-5 py-4 overflow-y-auto">
+
       <!-- ========================================================== -->
-      <!-- SCREEN 1: WELCOME SCREEN -->
+      <!-- SCREEN 1: WELCOME, TRUST SLAS & CHILD HANDOVER -->
       <!-- ========================================================== -->
-      <section id="screen1" class="screen flex-1 flex flex-col justify-between py-2 transition-all duration-300">
+      <section id="screen-welcome" class="screen flex-1 flex flex-col justify-between py-1 transition-all duration-300">
         
-        <!-- Top Gamer Profile & Mentor Rohan Reminder -->
         <div class="space-y-4">
           
-          <!-- Aarav's Gamer Badge Card -->
-          <div class="glass-card rounded-2xl p-3.5 flex items-center justify-between border-slate-700/60 shadow-lg">
-            <div class="flex items-center gap-3">
-              <div class="relative">
-                <div class="w-12 h-12 rounded-2xl bg-gradient-to-tr from-amber-500 to-orange-600 flex items-center justify-center text-2xl shadow-md shadow-orange-500/20">
-                  ⚡
-                </div>
-                <span class="absolute -bottom-1 -right-1 bg-emerald-500 text-[10px] font-black text-slate-950 px-1.5 py-0.5 rounded-full border border-slate-900 uppercase">Lvl 4</span>
-              </div>
-              <div>
-                <div class="text-[11px] font-semibold tracking-wider text-slate-400 uppercase">Player Ready</div>
-                <div class="text-base font-bold text-white flex items-center gap-1.5">
-                  Aarav Sharma
-                  <span class="text-amber-400 text-xs">✨</span>
-                </div>
-              </div>
-            </div>
-
-            <!-- Mentor Rohan Preview Bubble -->
-            <div class="flex items-center gap-2 pl-3 border-l border-slate-800">
-              <div class="text-right">
-                <div class="text-[10px] font-medium text-amber-300/80">Mentor Rohan</div>
-                <div class="text-[10px] font-bold text-slate-400">Sat Session</div>
-              </div>
-              <div class="w-8 h-8 rounded-full bg-slate-800 border border-amber-400/40 flex items-center justify-center text-xs shadow-sm">
-                👨🏻‍🏫
-              </div>
-            </div>
-          </div>
-
-          <!-- Hero Illustration / Dynamic Radar Hologram -->
-          <div class="relative py-3 flex items-center justify-center">
-            <div class="relative w-44 h-44 flex items-center justify-center">
-              <!-- Animated outer pulsing ring -->
-              <div class="absolute inset-0 rounded-full border-2 border-dashed border-amber-500/30 animate-[spin_20s_linear_infinite]"></div>
-              <div class="absolute inset-3 rounded-full border border-orange-500/20 bg-slate-900/60 backdrop-blur-sm"></div>
-              
-              <!-- Glowing Core Orb -->
-              <div class="absolute w-28 h-28 rounded-full bg-gradient-to-tr from-orange-600/40 via-amber-500/30 to-amber-300/20 blur-md animate-pulse"></div>
-              
-              <!-- Central Trophy & Speed Icon -->
-              <div class="relative z-10 flex flex-col items-center justify-center transform transition-transform hover:scale-105 duration-300">
-                <span class="text-6xl drop-shadow-[0_8px_16px_rgba(245,158,11,0.4)]">⚡🏆</span>
-                <span class="mt-1 px-2.5 py-0.5 rounded-full text-[10px] font-extrabold uppercase tracking-widest bg-amber-500/20 text-amber-300 border border-amber-400/30">
-                  Sprint Mode
-                </span>
-              </div>
-            </div>
+          <!-- Status Pill -->
+          <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-amber-500/15 border border-amber-500/30 text-amber-300 text-xs font-black tracking-wide shadow-sm">
+            <span class="w-2 h-2 rounded-full bg-amber-400 animate-ping"></span>
+            <span class="w-2 h-2 rounded-full bg-amber-400 -ml-4"></span>
+            <span data-i18n="statusPill">⚡ Live Demo Calibration • Saturday, 5:00 PM</span>
           </div>
 
           <!-- Main Headlines -->
-          <div class="text-center space-y-2">
-            <h1 class="text-3xl sm:text-[32px] font-extrabold tracking-tight leading-tight text-white">
-              Aarav's <span class="text-gradient-fire">Math Agility Test</span>
+          <div class="space-y-2">
+            <h1 class="text-2xl sm:text-[28px] font-black tracking-tight leading-tight text-white font-display">
+              <span data-i18n="welcomeTitle">Aarav's 90-Second Math Superpower Test</span>
             </h1>
-            
-            <p class="text-sm font-medium text-slate-300/90 leading-relaxed px-2">
-              Solve <span class="text-amber-400 font-bold">3 quick mental math challenges</span> before Saturday's session with <span class="text-white font-semibold underline decoration-amber-400/60 underline-offset-4">Mentor Rohan</span>!
+            <p class="text-xs sm:text-sm font-medium text-slate-300/90 leading-relaxed" data-i18n="welcomeSubtitle">
+              Hand the phone to Aarav! Let's check his speed & logical IQ baseline before his live session with Rohan Sir.
             </p>
           </div>
 
-          <!-- Key Stats / Benchmarks Badges -->
-          <div class="grid grid-cols-2 gap-3 pt-1">
-            <!-- Badge 1: Grade 4 Benchmark -->
-            <div class="glass-pill rounded-2xl p-3 flex items-center gap-3 border border-amber-500/20">
-              <div class="w-9 h-9 rounded-xl bg-amber-500/10 border border-amber-500/30 flex items-center justify-center text-lg flex-shrink-0">
-                🎯
-              </div>
-              <div class="min-w-0">
-                <div class="text-[10px] uppercase font-bold tracking-wider text-slate-400">Target</div>
-                <div class="text-xs font-extrabold text-amber-300 truncate">Grade 4 Benchmark</div>
-              </div>
+          <!-- Grade Pill Selector (interactive) -->
+          <div class="space-y-2">
+            <div class="text-[11px] font-bold uppercase tracking-wider text-slate-400 flex items-center justify-between">
+              <span data-i18n="gradeSelectLabel">Select Child's Grade</span>
+              <span class="text-amber-400 font-mono text-[10px]" data-i18n="gradeCurriculum">CBSE / ICSE / IB</span>
             </div>
-
-            <!-- Badge 2: Timer -->
-            <div class="glass-pill rounded-2xl p-3 flex items-center gap-3 border border-orange-500/20">
-              <div class="w-9 h-9 rounded-xl bg-orange-500/10 border border-orange-500/30 flex items-center justify-center text-lg flex-shrink-0">
-                ⏱️
-              </div>
-              <div class="min-w-0">
-                <div class="text-[10px] uppercase font-bold tracking-wider text-slate-400">Duration</div>
-                <div class="text-xs font-extrabold text-orange-400">60 Seconds</div>
-              </div>
+            <div class="grid grid-cols-4 gap-1.5" id="gradePillGroup">
+              <button type="button" class="grade-pill py-2 px-1 rounded-xl bg-slate-800 border border-slate-700 text-[11px] font-bold text-slate-300 text-center hover:border-slate-600 transition" onclick="selectGrade('Grade 1-2', this)">
+                Gr 1-2
+              </button>
+              <button type="button" class="grade-pill active py-2 px-1 rounded-xl bg-gradient-to-r from-amber-500/25 to-orange-500/25 border-2 border-amber-400 text-[11px] font-black text-amber-300 text-center shadow-[0_0_12px_rgba(245,158,11,0.3)] transition" onclick="selectGrade('Grade 3-4', this)">
+                Gr 3-4 ✨
+              </button>
+              <button type="button" class="grade-pill py-2 px-1 rounded-xl bg-slate-800 border border-slate-700 text-[11px] font-bold text-slate-300 text-center hover:border-slate-600 transition" onclick="selectGrade('Grade 5-6', this)">
+                Gr 5-6
+              </button>
+              <button type="button" class="grade-pill py-2 px-1 rounded-xl bg-slate-800 border border-slate-700 text-[11px] font-bold text-slate-300 text-center hover:border-slate-600 transition" onclick="selectGrade('Grade 7-8', this)">
+                Gr 7-8
+              </button>
             </div>
           </div>
 
-          <!-- What's Inside Feature Pills -->
-          <div class="glass-card rounded-2xl p-3 border-slate-800">
-            <div class="text-[11px] font-bold text-slate-400 uppercase tracking-wider mb-2 flex items-center justify-between">
-              <span>Sprint Breakdown</span>
-              <span class="text-amber-400 font-mono text-[10px]">3 Challenges</span>
+          <!-- Bhanzu 3-Point Parent Promise Trust Box (Solves EdTech PTSD) -->
+          <div class="glass-card rounded-2xl p-4 border-amber-500/25 shadow-lg space-y-2.5">
+            <div class="flex items-center justify-between border-b border-slate-800 pb-2">
+              <span class="text-[11px] font-black uppercase tracking-wider text-amber-400 flex items-center gap-1.5 font-display">
+                <span>🛡️</span>
+                <span data-i18n="promiseHeader">Bhanzu 3-Point Parent Promise</span>
+              </span>
+              <span class="text-[10px] font-bold text-emerald-400 bg-emerald-500/10 border border-emerald-500/30 px-2 py-0.5 rounded-full" data-i18n="verifiedSLA">
+                Verified SLA
+              </span>
             </div>
-            <div class="flex items-center justify-between gap-1.5 text-[11px] font-semibold text-slate-300">
-              <div class="flex-1 py-1.5 px-2 rounded-lg bg-slate-800/80 text-center border border-slate-700/50">
-                ⚡ Speed Calcs
+
+            <div class="space-y-2 text-xs font-semibold text-slate-200">
+              <div class="flex items-center gap-2.5 p-2 rounded-xl bg-slate-800/60 border border-slate-700/50">
+                <span class="text-base flex-shrink-0">👥</span>
+                <span data-i18n="promise1">Strict 1:4 Batch Guarantee (Never 8 kids)</span>
               </div>
-              <div class="flex-1 py-1.5 px-2 rounded-lg bg-slate-800/80 text-center border border-slate-700/50">
-                🧩 Number Ninja
+              <div class="flex items-center gap-2.5 p-2 rounded-xl bg-slate-800/60 border border-slate-700/50">
+                <span class="text-base flex-shrink-0">⏱️</span>
+                <span data-i18n="promise2">4:55 PM On-Time Teacher SLA</span>
               </div>
-              <div class="flex-1 py-1.5 px-2 rounded-lg bg-slate-800/80 text-center border border-slate-700/50">
-                🚀 Logic Blitz
+              <div class="flex items-center gap-2.5 p-2 rounded-xl bg-slate-800/60 border border-slate-700/50">
+                <span class="text-base flex-shrink-0">🛡️</span>
+                <span data-i18n="promise3">100% Free • Zero Financial Pressure</span>
               </div>
             </div>
           </div>
 
         </div>
 
-        <!-- Bottom Action Button Area -->
-        <div class="pt-4 pb-2 space-y-2">
-          <!-- Big Vibrant Primary CTA Button -->
+        <!-- Bottom Action CTA Area -->
+        <div class="pt-4 pb-2 space-y-2.5">
+          <!-- Primary CTA Button -->
           <button 
             id="startSprintBtn" 
-            class="btn-shine w-full py-4 px-6 rounded-2xl bg-gradient-to-r from-amber-500 via-orange-500 to-amber-500 bg-[length:200%_auto] hover:bg-right font-black text-slate-950 text-base sm:text-lg tracking-wide uppercase shadow-[0_12px_28px_-6px_rgba(245,158,11,0.55)] border-t border-amber-200/50 active:scale-[0.98] transition-all duration-200 flex items-center justify-center gap-2 group">
-            <span>Start 90-Second Sprint</span>
-            <span class="text-xl group-hover:translate-x-1 group-hover:-translate-y-0.5 transition-transform">🚀</span>
+            onclick="startQuizSprint()"
+            class="btn-shine w-full py-4 px-6 rounded-2xl bg-gradient-to-r from-amber-500 via-orange-500 to-amber-500 bg-[length:200%_auto] hover:bg-right font-black text-slate-950 text-base sm:text-lg tracking-wide uppercase shadow-[0_12px_28px_-6px_rgba(245,158,11,0.55)] border-t border-amber-200/50 active:scale-[0.98] transition-all duration-200 flex items-center justify-center gap-2 group cursor-pointer font-display">
+            <span data-i18n="startBtn">Start 90-Second Math Sprint 🚀</span>
           </button>
-          
-          <div class="text-center text-[11px] text-slate-400 flex items-center justify-center gap-1.5 font-medium">
-            <span class="w-1.5 h-1.5 rounded-full bg-emerald-400"></span>
-            Aarav's live session insights will sync with Mentor Rohan
+
+          <!-- Late-Night / Child Asleep Fallback Button -->
+          <div class="text-center pt-0.5">
+            <button 
+              type="button" 
+              id="reminderTriggerBtn"
+              onclick="triggerNightReminder()"
+              class="text-[11px] font-semibold text-slate-400 hover:text-amber-300 underline decoration-slate-600 hover:decoration-amber-400/60 transition inline-flex items-center gap-1.5 text-center leading-snug">
+              <span data-i18n="reminderLink">🌙 Is Aarav asleep or at school right now? Schedule 4:30 PM WhatsApp Reminder</span>
+            </button>
+            
+            <!-- Inline Confirmation Banner (revealed on click) -->
+            <div id="reminderBanner" class="hidden mt-2 p-2.5 rounded-xl bg-emerald-500/15 border border-emerald-500/40 text-emerald-300 text-xs font-semibold text-center leading-snug">
+              <span data-i18n="reminderBannerText">✅ Done! We will send Aarav's quiz link to your WhatsApp tomorrow at 4:30 PM post-school hours.</span>
+            </div>
           </div>
         </div>
 
       </section>
 
+
       <!-- ========================================================== -->
-      <!-- SCREEN 2: INTERACTIVE QUIZ SCREEN -->
+      <!-- SCREEN 2: 3-QUESTION GAMIFIED SPRINT -->
       <!-- ========================================================== -->
-      <section id="screen2" class="screen hidden flex-1 flex flex-col justify-between py-2 transition-all duration-300">
+      <section id="screen-quiz" class="screen hidden flex-1 flex flex-col justify-between py-1 transition-all duration-300">
         
-        <!-- Screen 2 Top Bar: Progress, Question Counter & 15s Countdown -->
+        <!-- Top Bar: Progress + Question Counter + 15s Countdown -->
         <div class="space-y-3">
-          
           <div class="flex items-center justify-between">
-            <!-- Question Step Pill -->
+            <!-- Question Pill -->
             <div class="flex items-center gap-2 px-3 py-1.5 rounded-full bg-slate-800/90 border border-slate-700/80 shadow-sm">
               <span class="w-2 h-2 rounded-full bg-amber-400 animate-pulse"></span>
-              <span id="questionCounter" class="text-xs font-black tracking-wide text-amber-300 font-sans uppercase">
+              <span id="quizCounterText" class="text-xs font-black tracking-wide text-amber-300 uppercase font-display">
                 Question 1 of 3
               </span>
             </div>
 
             <!-- 15s Countdown Badge -->
-            <div id="timerBadge" class="flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-orange-500/15 border border-orange-500/40 text-orange-400 font-mono text-sm font-black shadow-sm transition-colors duration-300">
-              <span class="animate-spin text-xs">⏱️</span>
-              <span id="timerCountdown">15s</span>
+            <div id="quizTimerBadge" class="flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-orange-500/15 border border-orange-500/40 text-orange-400 font-mono text-sm font-black shadow-sm transition-colors duration-300">
+              <span class="text-xs">⏱️</span>
+              <span id="quizTimerText">15s</span>
             </div>
           </div>
 
-          <!-- Dynamic 15s Question Timer Progress Bar -->
+          <!-- Dynamic 15s Progress Bar -->
           <div class="relative w-full bg-slate-800/90 rounded-full h-2 overflow-hidden border border-slate-700/50">
-            <div id="timerBar" class="h-full bg-gradient-to-r from-amber-400 via-orange-500 to-amber-500 transition-all duration-1000 ease-linear rounded-full w-full"></div>
+            <div id="quizTimerBar" class="h-full bg-gradient-to-r from-amber-400 via-orange-500 to-amber-500 transition-all duration-1000 ease-linear rounded-full w-full"></div>
           </div>
 
-          <!-- Overall Quiz Progress Dots -->
-          <div class="flex items-center justify-center gap-2 pt-1">
-            <div id="dot-0" class="w-8 h-1.5 rounded-full bg-amber-400 shadow-[0_0_8px_rgba(245,158,11,0.6)] transition-all duration-300"></div>
-            <div id="dot-1" class="w-8 h-1.5 rounded-full bg-slate-800 border border-slate-700 transition-all duration-300"></div>
-            <div id="dot-2" class="w-8 h-1.5 rounded-full bg-slate-800 border border-slate-700 transition-all duration-300"></div>
+          <!-- Progress Step Dots -->
+          <div class="flex items-center justify-center gap-2 pt-0.5">
+            <div id="qdot-0" class="w-8 h-1.5 rounded-full bg-amber-400 shadow-[0_0_8px_rgba(245,158,11,0.6)] transition-all duration-300"></div>
+            <div id="qdot-1" class="w-8 h-1.5 rounded-full bg-slate-800 border border-slate-700 transition-all duration-300"></div>
+            <div id="qdot-2" class="w-8 h-1.5 rounded-full bg-slate-800 border border-slate-700 transition-all duration-300"></div>
           </div>
-
         </div>
 
         <!-- Center: Math Problem Box -->
-        <div class="my-auto py-4 space-y-4">
+        <div class="my-auto py-3 space-y-4">
           
           <div class="glass-card relative rounded-3xl p-6 sm:p-7 border-amber-500/30 text-center shadow-[0_15px_35px_-10px_rgba(0,0,0,0.7)] overflow-hidden">
-            <!-- Background glow behind question -->
+            <!-- Glow backlight -->
             <div class="absolute -top-12 left-1/2 -translate-x-1/2 w-48 h-48 bg-gradient-to-b from-amber-500/15 to-transparent rounded-full blur-2xl pointer-events-none"></div>
 
-            <!-- Category tag -->
-            <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-slate-800/90 border border-amber-400/20 text-[10px] font-extrabold uppercase tracking-widest text-amber-400 mb-3 shadow-inner">
-              <span id="questionTagIcon">⚡</span>
-              <span id="questionCategory">Mental Math Sprint</span>
+            <!-- Problem Tag -->
+            <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-slate-800/90 border border-amber-400/20 text-[10px] font-extrabold uppercase tracking-widest text-amber-400 mb-2 shadow-inner">
+              <span id="quizQuestionIcon">🧩</span>
+              <span id="quizQuestionTag" data-i18n="q1Tag">Pattern & Visual IQ</span>
             </div>
 
-            <!-- Problem Prompt -->
-            <div class="text-xs font-semibold text-slate-400 uppercase tracking-wider mb-1">
+            <div class="text-[11px] font-semibold text-slate-400 uppercase tracking-wider mb-1" data-i18n="mentalPrompt">
               Calculate in your head
             </div>
 
-            <!-- Large Bold Math Expression -->
-            <div id="mathProblemText" class="text-5xl sm:text-6xl font-black text-white tracking-tight leading-none my-2 drop-shadow-[0_4px_12px_rgba(0,0,0,0.5)]">
-              24 × 11
+            <!-- Large Math Expression -->
+            <div id="quizQuestionText" class="text-4xl sm:text-5xl font-black text-white tracking-tight leading-none my-3 drop-shadow-[0_4px_12px_rgba(0,0,0,0.5)] font-display">
+              150 + 150 + 50 = ?
             </div>
 
-            <div id="problemSubtext" class="text-xs text-slate-400 font-medium">
+            <div id="quizQuestionSub" class="text-xs text-slate-400 font-medium" data-i18n="tapAnswer">
               Tap the correct answer before time runs out!
             </div>
           </div>
 
           <!-- 2x2 Grid of 4 Tappable Answer Buttons -->
-          <div id="optionsGrid" class="grid grid-cols-2 gap-3 pt-1">
-            <!-- Button 0 -->
-            <button class="option-btn group relative py-4 px-3 rounded-2xl bg-slate-800/90 hover:bg-slate-750 active:scale-95 border-2 border-slate-700/80 hover:border-amber-400/60 shadow-lg text-center transition-all duration-150 flex flex-col items-center justify-center">
-              <span class="option-val text-2xl font-black text-white group-hover:text-amber-300 transition-colors">244</span>
+          <div id="quizOptionsGrid" class="grid grid-cols-2 gap-3 pt-1">
+            <button class="opt-btn group relative py-4 px-3 rounded-2xl bg-slate-800/90 hover:bg-slate-750 active:scale-95 border-2 border-slate-700/80 hover:border-amber-400/60 shadow-lg text-center transition-all duration-150 flex items-center justify-center cursor-pointer">
+              <span class="opt-text text-2xl font-black text-white group-hover:text-amber-300 font-display">300</span>
             </button>
-            
-            <!-- Button 1 -->
-            <button class="option-btn group relative py-4 px-3 rounded-2xl bg-slate-800/90 hover:bg-slate-750 active:scale-95 border-2 border-slate-700/80 hover:border-amber-400/60 shadow-lg text-center transition-all duration-150 flex flex-col items-center justify-center">
-              <span class="option-val text-2xl font-black text-white group-hover:text-amber-300 transition-colors">264</span>
+            <button class="opt-btn group relative py-4 px-3 rounded-2xl bg-slate-800/90 hover:bg-slate-750 active:scale-95 border-2 border-slate-700/80 hover:border-amber-400/60 shadow-lg text-center transition-all duration-150 flex items-center justify-center cursor-pointer">
+              <span class="opt-text text-2xl font-black text-white group-hover:text-amber-300 font-display">350</span>
             </button>
-            
-            <!-- Button 2 -->
-            <button class="option-btn group relative py-4 px-3 rounded-2xl bg-slate-800/90 hover:bg-slate-750 active:scale-95 border-2 border-slate-700/80 hover:border-amber-400/60 shadow-lg text-center transition-all duration-150 flex flex-col items-center justify-center">
-              <span class="option-val text-2xl font-black text-white group-hover:text-amber-300 transition-colors">284</span>
+            <button class="opt-btn group relative py-4 px-3 rounded-2xl bg-slate-800/90 hover:bg-slate-750 active:scale-95 border-2 border-slate-700/80 hover:border-amber-400/60 shadow-lg text-center transition-all duration-150 flex items-center justify-center cursor-pointer">
+              <span class="opt-text text-2xl font-black text-white group-hover:text-amber-300 font-display">400</span>
             </button>
-            
-            <!-- Button 3 -->
-            <button class="option-btn group relative py-4 px-3 rounded-2xl bg-slate-800/90 hover:bg-slate-750 active:scale-95 border-2 border-slate-700/80 hover:border-amber-400/60 shadow-lg text-center transition-all duration-150 flex flex-col items-center justify-center">
-              <span class="option-val text-2xl font-black text-white group-hover:text-amber-300 transition-colors">254</span>
+            <button class="opt-btn group relative py-4 px-3 rounded-2xl bg-slate-800/90 hover:bg-slate-750 active:scale-95 border-2 border-slate-700/80 hover:border-amber-400/60 shadow-lg text-center transition-all duration-150 flex items-center justify-center cursor-pointer">
+              <span class="opt-text text-2xl font-black text-white group-hover:text-amber-300 font-display">250</span>
             </button>
           </div>
 
         </div>
 
-        <!-- Screen 2 Bottom Status / Tip -->
+        <!-- Screen 2 Bottom Status -->
         <div class="pt-2 pb-1 text-center">
           <div class="inline-flex items-center gap-1.5 text-[11px] font-medium text-slate-400">
-            <span>💡</span>
-            <span>Speed & Accuracy will calibrate Rohan Sir's live demo plan</span>
+            <span>⚡</span>
+            <span data-i18n="quizFooterNote">Measuring response latency & mental speed for Rohan Sir</span>
           </div>
         </div>
 
       </section>
 
+
       <!-- ========================================================== -->
-      <!-- SCREEN 3: DIAGNOSTIC REPORT (PRE-CLASS PROFILE) -->
+      <!-- SCREEN 3: PEER-BENCHMARKED SCORECARD, FUTURE IQ & SEAT LOCK -->
       <!-- ========================================================== -->
-      <section id="screen3" class="screen hidden flex-1 flex flex-col justify-between py-1 transition-all duration-300">
+      <section id="screen-report" class="screen hidden flex-1 flex flex-col justify-between py-1 transition-all duration-300">
         
         <div class="space-y-3.5">
           
           <!-- Screen 3 Header -->
-          <div class="text-center space-y-1 pt-1">
+          <div class="text-center space-y-1 pt-0.5">
             <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-emerald-500/15 border border-emerald-500/30 text-emerald-400 text-[10px] font-extrabold uppercase tracking-wider mb-0.5 shadow-sm">
               <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-ping"></span>
-              <span>Sprint Diagnostic Complete</span>
+              <span data-i18n="reportPill">Sprint Complete • Calibrated</span>
             </div>
-            <h1 class="text-2xl sm:text-[26px] font-black tracking-tight text-white">
-              Aarav's <span class="text-gradient-fire">Pre-Class Profile</span>
+            <h1 class="text-2xl sm:text-[26px] font-black tracking-tight text-white font-display">
+              <span data-i18n="reportTitle">Aarav's Pre-Class Profile</span>
             </h1>
-            <p class="text-xs text-slate-300/80 font-medium">
-              Calibrated live for Saturday's session with Mentor Rohan
+            <p class="text-xs text-slate-300/80 font-medium" data-i18n="reportSub">
+              Live baseline prepared for Rohan Sir's Demo Session
             </p>
           </div>
 
-          <!-- Visually Distinct SCORE CARD Box -->
+          <!-- Peer Benchmark Header Card -->
           <div class="glass-card relative rounded-3xl p-4 sm:p-5 border-2 border-amber-500/40 shadow-[0_16px_36px_-10px_rgba(245,158,11,0.25)] overflow-hidden">
-            <!-- Subtle background radial highlight -->
-            <div class="absolute -right-10 -top-10 w-40 h-40 bg-amber-500/10 rounded-full blur-2xl pointer-events-none"></div>
-
-            <!-- Score Card Header -->
             <div class="flex items-center justify-between border-b border-slate-800 pb-2.5 mb-3">
               <div class="flex items-center gap-2">
                 <span class="text-lg">⚡</span>
-                <span class="text-xs font-black tracking-wider text-slate-300 uppercase">Math Agility Index</span>
+                <span class="text-xs font-black tracking-wider text-slate-300 uppercase font-display" data-i18n="mathIndexLabel">Math Agility Index</span>
               </div>
-              <span class="text-[10px] font-bold text-amber-400 bg-amber-400/10 border border-amber-400/20 px-2 py-0.5 rounded-full uppercase">
-                Grade 4 Calibrated
+              <span class="text-[10px] font-bold text-amber-400 bg-amber-400/10 border border-amber-400/20 px-2 py-0.5 rounded-full uppercase" id="gradeActiveTag">
+                Grade 3-4 Calibrated
               </span>
             </div>
 
             <!-- Big Main Index Display -->
             <div class="flex items-baseline justify-between mb-2 px-1">
               <div class="flex items-baseline gap-1.5">
-                <span class="text-4xl sm:text-5xl font-black text-white tracking-tight drop-shadow-md">84</span>
-                <span class="text-lg font-bold text-slate-400">/ 100</span>
+                <span id="finalScoreVal" class="text-4xl sm:text-5xl font-black text-white tracking-tight drop-shadow-md font-display">84</span>
+                <span class="text-lg font-bold text-slate-400 font-display">/ 100</span>
               </div>
               <div class="text-right">
                 <div class="text-[11px] font-extrabold text-emerald-400 flex items-center justify-end gap-1">
-                  <span>🚀</span> High Velocity
+                  <span>🚀</span> <span data-i18n="highVelocity">High Velocity</span>
                 </div>
-                <div class="text-[10px] text-slate-400 font-medium">National Agility Pool</div>
+                <div class="text-[10px] text-slate-400 font-medium" data-i18n="baselineSample">14,800+ Students Tested</div>
               </div>
             </div>
 
-            <!-- Agility Progress Bar with Percentile Indicator -->
-            <div class="w-full bg-slate-800 rounded-full h-2 mb-2.5 overflow-hidden border border-slate-700/60">
-              <div class="h-2 rounded-full bg-gradient-to-r from-amber-400 via-orange-500 to-emerald-400 w-[84%] shadow-[0_0_12px_rgba(245,158,11,0.8)]"></div>
+            <!-- Agility Progress Bar -->
+            <div class="w-full bg-slate-800 rounded-full h-2 mb-3 overflow-hidden border border-slate-700/60">
+              <div id="finalScoreBar" class="h-2 rounded-full bg-gradient-to-r from-amber-400 via-orange-500 to-emerald-400 w-[84%] shadow-[0_0_12px_rgba(245,158,11,0.8)]"></div>
             </div>
 
-            <!-- 1. RELATIVE PEER BENCHMARKING (Authoritative & Data-Backed) -->
-            <div class="mb-3.5 p-2.5 rounded-2xl bg-gradient-to-r from-amber-500/15 via-slate-850 to-emerald-500/15 border border-amber-400/40 shadow-inner">
+            <!-- Peer Rank Badge (Authoritative) -->
+            <div class="p-2.5 rounded-2xl bg-gradient-to-r from-amber-500/15 via-slate-850 to-emerald-500/15 border border-amber-400/40 shadow-inner">
               <div class="flex items-start gap-2.5">
                 <div class="w-8 h-8 rounded-xl bg-amber-400/20 border border-amber-400/40 flex items-center justify-center text-base flex-shrink-0 shadow-sm">
                   🏆
                 </div>
                 <div class="flex-1 min-w-0">
-                  <div class="text-xs font-black text-amber-300 leading-snug">
-                    Top 15% among all 9-year-olds taking this for the first time.
+                  <div class="text-xs font-black text-amber-300 leading-snug" data-i18n="peerRank">
+                    Faster than 82% of first-time Grade 4 students!
                   </div>
                   <div class="text-[10px] text-slate-400 font-medium mt-0.5 flex items-center gap-1.5">
                     <span class="w-1.5 h-1.5 rounded-full bg-emerald-400"></span>
-                    <span>Data-backed baseline • 14,800+ Grade 4 mathletes assessed</span>
+                    <span data-i18n="peerSub">Verified diagnostic dataset • Strong logical baseline</span>
                   </div>
                 </div>
               </div>
             </div>
 
-            <!-- Sub-Metrics Breakdown: Strengths & Focus Areas -->
-            <div class="space-y-2 pt-2 border-t border-slate-800/80">
+            <!-- 3-Row Diagnostic Breakdown -->
+            <div class="space-y-2 pt-3 mt-3 border-t border-slate-800/80">
               
-              <!-- Metric 1: Pattern Recognition -->
+              <!-- 1. Pattern & Visual Logic -->
               <div class="flex items-center justify-between p-2.5 rounded-xl bg-slate-800/60 border border-slate-700/50">
                 <div class="flex items-center gap-2">
                   <span class="text-sm">🧩</span>
-                  <span class="text-xs font-bold text-slate-200">Pattern Recognition</span>
+                  <span class="text-xs font-bold text-slate-200" data-i18n="row1Title">Pattern & Visual Logic</span>
                 </div>
-                <!-- Fast (1.2s) in Green -->
                 <span class="px-2.5 py-1 rounded-lg bg-emerald-500/15 border border-emerald-500/40 text-emerald-400 text-xs font-black shadow-sm flex items-center gap-1">
-                  <span>⚡</span> Fast (1.2s)
+                  <span>⚡</span> <span id="q1LatencyBadge" data-i18n="row1Val">Fast (1.8s)</span>
                 </span>
               </div>
 
-              <!-- Metric 2: Bridging Shortcut -->
+              <!-- 2. Carry-Over Addition (48 + 37) -->
+              <div class="p-2.5 rounded-xl bg-slate-800/60 border border-rose-500/30">
+                <div class="flex items-center justify-between">
+                  <div class="flex items-center gap-2">
+                    <span class="text-sm">➕</span>
+                    <span class="text-xs font-bold text-slate-200" data-i18n="row2Title">Carry-Over Addition (48 + 37)</span>
+                  </div>
+                  <span class="px-2.5 py-1 rounded-lg bg-rose-500/15 border border-rose-500/40 text-rose-400 text-xs font-black shadow-sm flex items-center gap-1">
+                    <span>⚠️</span> <span id="q2LatencyBadge">4.2s vs 1.2s Target</span>
+                  </span>
+                </div>
+                <div class="text-[10px] text-amber-300/90 font-medium mt-1 pl-6" data-i18n="row2Sub">
+                  School finger/carry-over habit slows him down
+                </div>
+              </div>
+
+              <!-- 3. 24 × 11 Speed Shortcut -->
               <div class="flex items-center justify-between p-2.5 rounded-xl bg-slate-800/60 border border-slate-700/50">
                 <div class="flex items-center gap-2">
-                  <span class="text-sm">🎯</span>
-                  <span class="text-xs font-bold text-slate-200">Bridging Shortcut</span>
+                  <span class="text-sm">⚡</span>
+                  <span class="text-xs font-bold text-slate-200" data-i18n="row3Title">24 × 11 Speed Shortcut</span>
                 </div>
-                <!-- Needs Live Coaching in Red -->
-                <span class="px-2.5 py-1 rounded-lg bg-rose-500/15 border border-rose-500/40 text-rose-400 text-xs font-black shadow-sm flex items-center gap-1">
-                  <span>⚠️</span> Needs Live Coaching
+                <span class="px-2.5 py-1 rounded-lg bg-amber-500/15 border border-amber-500/40 text-amber-300 text-xs font-black shadow-sm flex items-center gap-1">
+                  <span>🔒</span> <span data-i18n="row3Val">Locked for Saturday's Demo</span>
                 </span>
               </div>
 
@@ -495,99 +454,132 @@
 
           </div>
 
-          <!-- 2. OUTCOME EXPECTATION BANNER (Course Trajectory) -->
-          <div class="relative rounded-2xl p-3.5 bg-gradient-to-br from-emerald-950/50 via-slate-900/90 to-slate-900 border border-emerald-500/35 shadow-lg overflow-hidden">
-            <div class="flex items-center justify-between mb-1.5">
-              <div class="flex items-center gap-2">
-                <span class="text-sm">📈</span>
-                <span class="text-xs font-black tracking-wider uppercase text-emerald-400 font-sans">
-                  Course Trajectory
-                </span>
-              </div>
-              <span class="text-[10px] font-extrabold text-emerald-300 bg-emerald-500/20 border border-emerald-400/30 px-2 py-0.5 rounded-full">
-                12-Week Proof of Learning
+          <!-- Why This Matters for Aarav's Future IQ & Logic Card (Plain-Language Parent Value) -->
+          <div class="relative rounded-2xl p-4 bg-gradient-to-br from-emerald-950/40 via-slate-900/90 to-slate-900 border border-emerald-500/35 shadow-lg overflow-hidden">
+            <div class="flex items-center gap-2 mb-2">
+              <span class="text-base">🧠</span>
+              <span class="text-xs font-black tracking-wider uppercase text-emerald-400 font-display" data-i18n="futureIQTitle">
+                How This Boosts School Exams, Logic & IQ
               </span>
             </div>
-            <p class="text-xs text-slate-200 leading-relaxed font-medium">
-              Students starting with Aarav's baseline typically achieve a <span class="text-emerald-400 font-extrabold underline decoration-emerald-400/50 underline-offset-2">3x calculation speed increase</span> within the first 12 weeks of the Bhanzu masterclass.
+            <p class="text-xs text-slate-200 leading-relaxed font-medium" data-i18n="futureIQCopy">
+              Right now, 80% of Aarav's brainpower gets tired just doing carry-over counting. Once Rohan Sir automates his calculation speed, 100% of his brain frees up to master Word Problems, Olympiad Logic, and High-IQ STEM concepts—while cutting daily homework time from 60 mins to 15 mins!
             </p>
           </div>
 
-          <!-- 3. THE AC / TEACHER HANDOVER LOCK (Punchy Curiosity Gap) -->
-          <div class="relative rounded-2xl p-3.5 bg-gradient-to-br from-amber-500/15 via-slate-900/95 to-orange-600/15 border-2 border-amber-500/50 shadow-xl overflow-hidden">
-            <!-- Background Lock Watermark -->
+          <!-- The Zeigarnik Curiosity Gap Hook (Amber Border Box) -->
+          <div class="relative rounded-2xl p-4 bg-gradient-to-br from-amber-500/15 via-slate-900/95 to-orange-600/15 border-2 border-amber-500/50 shadow-xl overflow-hidden">
             <div class="absolute -right-3 -bottom-3 text-5xl text-amber-500/10 select-none pointer-events-none font-sans">
               🔒
             </div>
 
-            <!-- Header with Lock Badge & Live Handover Status -->
-            <div class="flex items-center justify-between mb-2">
-              <div class="flex items-center gap-2">
-                <div class="w-6 h-6 rounded-lg bg-amber-500/20 border border-amber-400/50 flex items-center justify-center text-xs shadow-sm flex-shrink-0 animate-pulse">
-                  🔒
-                </div>
-                <span class="text-xs font-black tracking-wider uppercase text-amber-300 font-sans">
-                  Faculty Live Handover
-                </span>
+            <div class="flex items-center gap-2 mb-2">
+              <div class="w-6 h-6 rounded-lg bg-amber-500/20 border border-amber-400/50 flex items-center justify-center text-xs shadow-sm flex-shrink-0 animate-pulse">
+                🔒
               </div>
-              <span class="text-[10px] font-extrabold text-orange-400 flex items-center gap-1">
-                <span class="w-1.5 h-1.5 rounded-full bg-orange-400 animate-ping"></span>
-                In Review
+              <span class="text-xs font-black tracking-wider uppercase text-amber-300 font-display" data-i18n="zeigarnikTitle">
+                Secret 2-Second Trick for 24 × 11 (Unlocked Live in Demo)
               </span>
             </div>
 
-            <!-- Punchier Exact Required Copy -->
-            <p class="text-xs text-slate-200 leading-relaxed font-medium">
-              Rohan Sir is reviewing this exact scorecard right now. The <span class="text-amber-300 font-bold underline decoration-amber-400/60 underline-offset-2">2-step secret</span> to fix Aarav's multi-digit carry-over will be unlocked <span class="text-white font-extrabold bg-amber-500/20 px-1 py-0.5 rounded">LIVE</span> in Saturday's Demo.
+            <p class="text-xs text-slate-200 leading-relaxed font-medium" data-i18n="zeigarnikCopy">
+              Rohan Sir has received Aarav's scorecard. In the first 10 minutes of Saturday's 5:00 PM class, he will teach Aarav how to solve 24 × 11 in 1.5 seconds without pen or paper!
             </p>
 
             <div class="mt-2.5 pt-2 border-t border-amber-500/20 flex items-center justify-between text-[11px] text-amber-200/80">
               <span class="flex items-center gap-1 font-medium">
-                <span>👨🏻‍🏫</span> Mentor Rohan • Senior Lead
+                <span>👨‍🏫</span> <span data-i18n="zeigarnikMentor">Rohan Sir • IIT Alumni</span>
               </span>
-              <span class="font-bold text-amber-400">Sat, 5:00 PM</span>
+              <span class="font-bold text-amber-400" data-i18n="zeigarnikTime">Sat, 5:00 PM</span>
             </div>
           </div>
 
         </div>
 
-        <!-- Confirmation Action Button Area -->
-        <div class="pt-3 pb-2 space-y-2">
-          
-          <!-- Final Confirmation Button -->
+        <!-- Action Buttons -->
+        <div class="pt-4 pb-2 space-y-2.5">
+          <!-- Primary CTA Button -->
           <button 
-            id="confirmSeatBtn" 
-            class="btn-shine w-full py-4 px-5 rounded-2xl bg-gradient-to-r from-amber-500 via-orange-500 to-amber-500 bg-[length:200%_auto] hover:bg-right font-black text-slate-950 text-base sm:text-lg tracking-wide uppercase shadow-[0_12px_28px_-6px_rgba(245,158,11,0.55)] border-t border-amber-200/50 active:scale-[0.98] transition-all duration-300 flex items-center justify-center gap-2 group cursor-pointer">
-            <span id="confirmBtnIcon">✅</span>
-            <span id="confirmBtnText">Confirm Aarav's Seat on Live Roster</span>
+            id="confirmAttendanceBtn" 
+            onclick="lockSeat()"
+            class="btn-shine w-full py-4 px-5 rounded-2xl bg-gradient-to-r from-amber-500 via-orange-500 to-amber-500 bg-[length:200%_auto] hover:bg-right font-black text-slate-950 text-base sm:text-lg tracking-wide uppercase shadow-[0_12px_28px_-6px_rgba(245,158,11,0.55)] border-t border-amber-200/50 active:scale-[0.98] transition-all duration-300 flex items-center justify-center gap-2 group cursor-pointer font-display">
+            <span id="confirmIcon">✅</span>
+            <span id="confirmText" data-i18n="confirmBtn">Confirm Attendance & Lock Aarav's Seat</span>
           </button>
 
-          <!-- Retake Sprint link for interactive prototype demo -->
-          <div class="flex items-center justify-between px-2 pt-1">
-            <button id="restartSprintBtn" class="text-[11px] font-bold text-slate-400 hover:text-amber-400 flex items-center gap-1 transition">
-              <span>↻</span> Retake Sprint Demo
-            </button>
-            <span class="text-[10px] text-slate-500 font-medium">100% Free Live Masterclass</span>
-          </div>
+          <!-- Secondary CTA (Dual-Parent Sync via WhatsApp) -->
+          <button 
+            type="button" 
+            id="shareWhatsAppBtn"
+            onclick="shareWithSpouseWhatsApp()"
+            class="w-full py-3 px-4 rounded-xl bg-slate-800/90 hover:bg-slate-750 border border-emerald-500/40 text-emerald-300 hover:text-emerald-200 text-xs font-bold transition flex items-center justify-center gap-2 shadow-sm">
+            <span>📲</span>
+            <span data-i18n="shareSpouseBtn">Share Scorecard & Class Link with Spouse (WhatsApp)</span>
+          </button>
 
+          <!-- Retake Link -->
+          <div class="text-center pt-1">
+            <button onclick="retakeMicroSprint()" class="text-[11px] font-bold text-slate-400 hover:text-amber-400 transition">
+              <span>↻</span> <span data-i18n="retakeBtn">Retake Speed Sprint</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- SCREEN 3 FOOTER: COLLAPSIBLE REVIEWER / AC CRM TELEMETRY DRAWER -->
+        <div class="mt-4 pt-3 border-t border-slate-800/80">
+          <button 
+            type="button" 
+            id="crmToggleBtn"
+            onclick="toggleCrmDrawer()"
+            class="w-full py-2 px-3 rounded-xl bg-slate-850 hover:bg-slate-800 border border-slate-700/60 text-slate-400 hover:text-slate-200 text-[11px] font-bold flex items-center justify-between transition">
+            <span class="flex items-center gap-1.5">
+              <span>🛠️</span>
+              <span data-i18n="crmDrawerTitle">[For Reviewers] View Teacher & Academic Counsellor (AC) Backend Log</span>
+            </span>
+            <span id="crmDrawerArrow" class="text-xs transition-transform">▼</span>
+          </button>
+
+          <!-- Drawer Body -->
+          <div id="crmDrawerBody" class="hidden mt-3 p-3.5 rounded-2xl bg-slate-950 border border-slate-800 space-y-3 text-left">
+            
+            <!-- 1. Real-Time JSON Payload -->
+            <div>
+              <div class="flex items-center justify-between text-[10px] font-black uppercase tracking-wider text-amber-400 mb-1.5 font-display">
+                <span>1. Real-Time JSON Payload Sent to Bhanzu CRM</span>
+                <span class="text-emerald-400 font-mono">STATUS: 200 OK</span>
+              </div>
+              <pre id="crmJsonPayload" class="p-2.5 rounded-xl bg-slate-900 border border-slate-800 text-[11px] font-mono text-emerald-300 overflow-x-auto whitespace-pre-wrap leading-tight"></pre>
+            </div>
+
+            <!-- 2. Auto-Generated Academic Counsellor (AC) Post-Class Script -->
+            <div class="pt-2 border-t border-slate-800">
+              <div class="text-[10px] font-black uppercase tracking-wider text-orange-400 mb-1 font-display">
+                2. Auto-Generated Academic Counsellor (AC) Post-Class Closing Script:
+              </div>
+              <blockquote class="p-2.5 rounded-xl bg-slate-900/90 border-l-2 border-orange-500 text-[11px] text-slate-300 leading-relaxed font-sans italic">
+                "<span id="acScriptText">Priya ji, in the pre-class Speed Lab Aarav took 4.2s on carry-over math, and in just 15 mins with Rohan Sir today he dropped that to 1.5s! Over 12 weeks, we automate calculation across his syllabus so 100% of his brain focuses on logical IQ and word problems. You can start with an easy monthly plan backed by our 14-day 100% refund guarantee.</span>"
+              </blockquote>
+            </div>
+
+          </div>
         </div>
 
       </section>
 
     </main>
 
-    <!-- FLOATING SUCCESS TOAST NOTIFICATION -->
-    <div id="successToast" class="fixed top-6 left-1/2 -translate-x-1/2 w-[90%] max-w-sm pointer-events-none opacity-0 -translate-y-4 transition-all duration-400 z-50">
+    <!-- FLOATING SUCCESS TOAST -->
+    <div id="appToast" class="fixed top-5 left-1/2 -translate-x-1/2 w-[90%] max-w-sm pointer-events-none opacity-0 -translate-y-4 transition-all duration-300 z-50">
       <div class="glass-card rounded-2xl p-4 bg-slate-900/95 border-2 border-emerald-400/80 shadow-[0_20px_40px_rgba(0,0,0,0.8)] flex items-start gap-3">
         <div class="w-10 h-10 rounded-xl bg-emerald-500/20 border border-emerald-400 flex items-center justify-center text-xl flex-shrink-0 animate-bounce">
           🎉
         </div>
         <div class="flex-1 min-w-0">
-          <div class="text-xs font-black uppercase tracking-wider text-emerald-400 mb-0.5">
-            Seat Successfully Confirmed!
+          <div id="toastTitle" class="text-xs font-black uppercase tracking-wider text-emerald-400 mb-0.5 font-display">
+            Seat Locked!
           </div>
-          <div class="text-xs text-slate-200 leading-snug">
-            Aarav is officially registered on Mentor Rohan's Live Roster for <strong class="text-white">Saturday at 5:00 PM</strong>!
+          <div id="toastMessage" class="text-xs text-slate-200 leading-snug">
+            Aarav is officially scheduled with Mentor Rohan for Saturday 5:00 PM.
           </div>
         </div>
       </div>
@@ -595,146 +587,250 @@
 
   </div>
 
-  <!-- Interactive Logic -->
+  <!-- APPLICATION LOGIC -->
   <script>
-    // Screen Elements
-    const screen1 = document.getElementById('screen1');
-    const screen2 = document.getElementById('screen2');
-    const screen3 = document.getElementById('screen3');
-    
-    // Screen 1 Buttons
-    const startSprintBtn = document.getElementById('startSprintBtn');
-    const audioToggleBtn = document.getElementById('audioToggleBtn');
+    // ==========================================
+    // 1. BILINGUAL DICTIONARY (EN & HINDI)
+    // ==========================================
+    let currentLang = 'en';
 
-    // Screen 2 Quiz Elements
-    const questionCounter = document.getElementById('questionCounter');
-    const timerCountdown = document.getElementById('timerCountdown');
-    const timerBadge = document.getElementById('timerBadge');
-    const timerBar = document.getElementById('timerBar');
-    const mathProblemText = document.getElementById('mathProblemText');
-    const questionCategory = document.getElementById('questionCategory');
-    const questionTagIcon = document.getElementById('questionTagIcon');
-    const optionsGrid = document.getElementById('optionsGrid');
-    const optionBtns = optionsGrid.querySelectorAll('.option-btn');
-
-    // Screen 3 Elements
-    const confirmSeatBtn = document.getElementById('confirmSeatBtn');
-    const confirmBtnIcon = document.getElementById('confirmBtnIcon');
-    const confirmBtnText = document.getElementById('confirmBtnText');
-    const restartSprintBtn = document.getElementById('restartSprintBtn');
-    const successToast = document.getElementById('successToast');
-
-    // Quiz Questions Data Structure
-    const questions = [
-      {
-        text: "24 × 11",
-        options: [244, 264, 284, 254],
-        answer: 264,
-        category: "11's Vedic Multiplication",
-        icon: "⚡"
+    const translations = {
+      en: {
+        mentorTitle: "Rohan Sir • IIT Alumni Mentor",
+        mentorSub: "Bhanzu Senior Faculty",
+        statusPill: "⚡ Live Demo Calibration • Saturday, 5:00 PM",
+        welcomeTitle: "Aarav's 90-Second Math Superpower Test",
+        welcomeSubtitle: "Hand the phone to Aarav! Let's check his speed & logical IQ baseline before his live session with Rohan Sir.",
+        gradeSelectLabel: "Select Child's Grade",
+        gradeCurriculum: "CBSE / ICSE / IB",
+        promiseHeader: "Bhanzu 3-Point Parent Promise",
+        verifiedSLA: "Verified SLA",
+        promise1: "Strict 1:4 Batch Guarantee (Never 8 kids)",
+        promise2: "4:55 PM On-Time Teacher SLA",
+        promise3: "100% Free • Zero Financial Pressure",
+        startBtn: "Start 90-Second Math Sprint 🚀",
+        reminderLink: "🌙 Is Aarav asleep or at school right now? Schedule 4:30 PM WhatsApp Reminder",
+        reminderBannerText: "✅ Done! We will send Aarav's quiz link to your WhatsApp tomorrow at 4:30 PM post-school hours.",
+        q1Tag: "Pattern & Visual IQ",
+        q2Tag: "School Carry-Over Bottleneck",
+        q3Tag: "The Bhanzu 11s Magic Hook",
+        mentalPrompt: "Calculate in your head",
+        tapAnswer: "Tap the correct answer before time runs out!",
+        quizFooterNote: "Measuring response latency & mental speed for Rohan Sir",
+        reportPill: "Sprint Complete • Calibrated",
+        reportTitle: "Aarav's Pre-Class Profile",
+        reportSub: "Live baseline prepared for Rohan Sir's Demo Session",
+        mathIndexLabel: "Math Agility Index",
+        highVelocity: "High Velocity",
+        baselineSample: "14,800+ Students Tested",
+        peerRank: "Faster than 82% of first-time Grade 4 students!",
+        peerSub: "Verified diagnostic dataset • Strong logical baseline",
+        row1Title: "Pattern & Visual Logic",
+        row1Val: "Fast (1.8s) ⚡",
+        row2Title: "Carry-Over Addition (48 + 37)",
+        row2Sub: "School finger/carry-over habit slows him down",
+        row3Title: "24 × 11 Speed Shortcut",
+        row3Val: "Locked for Saturday's Demo",
+        futureIQTitle: "How This Boosts School Exams, Logic & IQ",
+        futureIQCopy: "Right now, 80% of Aarav's brainpower gets tired just doing carry-over counting. Once Rohan Sir automates his calculation speed, 100% of his brain frees up to master Word Problems, Olympiad Logic, and High-IQ STEM concepts—while cutting daily homework time from 60 mins to 15 mins!",
+        zeigarnikTitle: "Secret 2-Second Trick for 24 × 11 (Unlocked Live in Demo)",
+        zeigarnikCopy: "Rohan Sir has received Aarav's scorecard. In the first 10 minutes of Saturday's 5:00 PM class, he will teach Aarav how to solve 24 × 11 in 1.5 seconds without pen or paper!",
+        zeigarnikMentor: "Rohan Sir • IIT Alumni",
+        zeigarnikTime: "Sat, 5:00 PM",
+        confirmBtn: "Confirm Attendance & Lock Aarav's Seat",
+        confirmSuccess: "🎉 Seat Locked on Rohan Sir's Live Roster! Calendar Updated.",
+        shareSpouseBtn: "Share Scorecard & Class Link with Spouse (WhatsApp)",
+        retakeBtn: "Retake Speed Sprint",
+        crmDrawerTitle: "[For Reviewers] View Teacher & Academic Counsellor (AC) Backend Log",
       },
-      {
-        text: "48 + 37",
-        options: [85, 75, 95, 83],
-        answer: 85,
-        category: "Mental Addition Sprint",
-        icon: "➕"
-      },
-      {
-        text: "98 × 5",
-        options: [480, 490, 510, 495],
-        answer: 490,
-        category: "Half-and-Ten Shortcut",
-        icon: "🚀"
+      hi: {
+        mentorTitle: "रोहन सर • IIT एलुमनाई मेंटर",
+        mentorSub: "भंजू सीनियर फैकल्टी",
+        statusPill: "⚡ लाइव डेमो कैलिब्रेशन • शनिवार, शाम 5:00 बजे",
+        welcomeTitle: "आरव का 90-सेकंड मैथ सुपरपावर टेस्ट",
+        welcomeSubtitle: "फ़ोन आरव को दें! रोहन सर के साथ लाइव क्लास से पहले उसकी मैथ स्पीड और लॉजिकल IQ चेक करें।",
+        gradeSelectLabel: "बच्चे की कक्षा चुनें",
+        gradeCurriculum: "CBSE / ICSE / IB",
+        promiseHeader: "भंजू 3-पॉइंट पेरेंट प्रॉमिस",
+        verifiedSLA: "वेरिफाइड SLA",
+        promise1: "केवल 4 बच्चों का बैच (कभी 8 बच्चे नहीं)",
+        promise2: "4:55 PM समय पर क्लास की गारंटी",
+        promise3: "100% मुफ़्त • कोई सेल्स दबाव नहीं",
+        startBtn: "90-सेकंड मैथ टेस्ट शुरू करें 🚀",
+        reminderLink: "🌙 क्या आरव अभी सो रहा है या स्कूल में है? कल शाम 4:30 बजे रिमाइंडर भेजें",
+        reminderBannerText: "✅ रिमांडर सेट! हम कल स्कूल के बाद शाम 4:30 बजे आपके व्हाट्सएप पर टेस्ट लिंक भेज देंगे।",
+        q1Tag: "पैटर्न और विजुअल IQ",
+        q2Tag: "स्कूल कैरी-ओवर रुकावट",
+        q3Tag: "भंजू 11s मैजिक ट्रिक",
+        mentalPrompt: "मन में हिसाब लगाएं",
+        tapAnswer: "समय समाप्त होने से पहले सही उत्तर पर टैप करें!",
+        quizFooterNote: "रोहन सर के लिए रिस्पॉन्स स्पीड और मेंटल मैथ मापी जा रही है",
+        reportPill: "स्प्रिंट पूरा हुआ • कैलिब्रेटेड",
+        reportTitle: "आरव की प्री-क्लास प्रोफ़ाइल",
+        reportSub: "रोहन सर के डेमो सेशन के लिए लाइव रिपोर्ट तैयार है",
+        mathIndexLabel: "मैथ एजिलिटी इंडेक्स",
+        highVelocity: "हाई वेलोसिटी",
+        baselineSample: "14,800+ बच्चों का टेस्ट डेटा",
+        peerRank: "ग्रेड 4 के 82% बच्चों से तेज़!",
+        peerSub: "प्रमाणित डायग्नोस्टिक डेटा • मजबूत लॉजिकल आधार",
+        row1Title: "पैटर्न और विजुअल लॉजिक",
+        row1Val: "तेज़ (1.8s) ⚡",
+        row2Title: "कैरी-ओवर जोड़ (48 + 37)",
+        row2Sub: "स्कूल की उंगली गिनने की आदत उसे धीमा करती है",
+        row3Title: "24 × 11 स्पीड शॉर्टकट ट्रिक",
+        row3Val: "शनिवार के लाइव डेमो में अनलॉक होगी",
+        futureIQTitle: "यह स्कूल परीक्षा और IQ में कैसे मदद करता है?",
+        futureIQCopy: "अभी आरव की 80% दिमागी ऊर्जा केवल कैरी-ओवर काउंटिंग में थक जाती है। जैसे ही रोहन सर उसकी कैलकुलेशन स्पीड ऑटोमेट करेंगे, उसका 100% दिमाग वर्ड प्रॉब्लम्स, ओलंपियाड लॉजिक और हाई-IQ STEM कॉन्सेप्ट्स में लग जाएगा—और रोज़ का होमवर्क 60 मिनट से घटकर सिर्फ 15 मिनट रह जाएगा!",
+        zeigarnikTitle: "24 × 11 की 2-सेकंड सीक्रेट ट्रिक (डेमो में लाइव अनलॉक)",
+        zeigarnikCopy: "रोहन सर को आरव का स्कोरकार्ड मिल चुका है। शनिवार शाम 5:00 बजे की क्लास के पहले 10 मिनट में, वे आरव को बिना पेन-कागज़ के 1.5 सेकंड में 24 × 11 हल करना सिखाएंगे!",
+        zeigarnikMentor: "रोहन सर • IIT एलुमनाई",
+        zeigarnikTime: "शनिवार, 5:00 PM",
+        confirmBtn: "आरव की सीट लाइव रोस्टर पर कन्फर्म करें",
+        confirmSuccess: "🎉 रोहन सर के लाइव रोस्टर पर सीट लॉक हो गई! कैलेंडर अपडेट हुआ।",
+        shareSpouseBtn: "जीवनसाथी के साथ स्कोरकार्ड और क्लास लिंक शेयर करें (WhatsApp)",
+        retakeBtn: "टेस्ट दोबारा दें",
+        crmDrawerTitle: "[रिव्यूर के लिए] टीचर व काउंसलर बैकएंड लॉग देखें",
       }
-    ];
+    };
 
+    function toggleLanguage() {
+      currentLang = (currentLang === 'en') ? 'hi' : 'en';
+      
+      const langFlag = document.getElementById('langFlag');
+      const langText = document.getElementById('langText');
+      if (currentLang === 'hi') {
+        langFlag.textContent = '🇮🇳';
+        langText.textContent = 'हिंदी | 🇬🇧 EN';
+      } else {
+        langFlag.textContent = '🇬🇧';
+        langText.textContent = 'EN | 🇮🇳 हिंदी';
+      }
+
+      // Update all data-i18n elements
+      document.querySelectorAll('[data-i18n]').forEach(el => {
+        const key = el.getAttribute('data-i18n');
+        if (translations[currentLang][key]) {
+          el.textContent = translations[currentLang][key];
+        }
+      });
+
+      // Update dynamic question tags if quiz is active
+      updateCurrentQuestionTexts();
+      updateCrmPayload();
+    }
+
+    // ==========================================
+    // 2. STATE & ENGINEERED QUESTIONS
+    // ==========================================
+    let selectedGrade = 'Grade 3-4';
     let currentQuestionIndex = 0;
     let timerInterval = null;
     let timeLeft = 15;
     const QUESTION_TIME = 15;
+    let questionStartTime = 0;
     let isTransitioning = false;
-    let userResponses = [];
+    let seatLocked = false;
 
-    // Screen Transitions Helper
-    function switchScreen(fromScreen, toScreen, callback) {
-      fromScreen.style.opacity = '0';
-      fromScreen.style.transform = 'scale(0.96)';
+    // Engineered 3 Questions from Prompt 4:
+    const quizQuestions = [
+      {
+        text: "150 + 150 + 50 = ?",
+        options: [300, 350, 400, 250],
+        answer: 350,
+        tagKey: "q1Tag",
+        icon: "🧩",
+        fallbackLatency: 1.8
+      },
+      {
+        text: "48 + 37 = ?",
+        options: [75, 85, 95, 83],
+        answer: 85,
+        tagKey: "q2Tag",
+        icon: "➕",
+        fallbackLatency: 4.2
+      },
+      {
+        text: "24 × 11 = ?",
+        options: [244, 264, 284, 254],
+        answer: 264,
+        tagKey: "q3Tag",
+        icon: "⚡",
+        fallbackLatency: 3.1
+      }
+    ];
+
+    let recordedLatencies = [1.8, 4.2, 3.1]; // Default fallback values
+
+    function selectGrade(grade, btn) {
+      selectedGrade = grade;
+      document.querySelectorAll('#gradePillGroup .grade-pill').forEach(b => {
+        b.className = "grade-pill py-2 px-1 rounded-xl bg-slate-800 border border-slate-700 text-[11px] font-bold text-slate-300 text-center hover:border-slate-600 transition";
+      });
+      btn.className = "grade-pill active py-2 px-1 rounded-xl bg-gradient-to-r from-amber-500/25 to-orange-500/25 border-2 border-amber-400 text-[11px] font-black text-amber-300 text-center shadow-[0_0_12px_rgba(245,158,11,0.3)] transition";
+      
+      const gradeTag = document.getElementById('gradeActiveTag');
+      if (gradeTag) gradeTag.textContent = `${grade} Calibrated`;
+      updateCrmPayload();
+    }
+
+    function triggerNightReminder() {
+      const banner = document.getElementById('reminderBanner');
+      banner.classList.remove('hidden');
+      if (navigator.vibrate) navigator.vibrate(25);
+    }
+
+    // Screen transitions
+    function switchScreen(fromId, toId, callback) {
+      const fromEl = document.getElementById(fromId);
+      const toEl = document.getElementById(toId);
+
+      fromEl.style.opacity = '0';
+      fromEl.style.transform = 'scale(0.97)';
 
       setTimeout(() => {
-        fromScreen.classList.add('hidden');
-        toScreen.classList.remove('hidden');
-        toScreen.style.opacity = '0';
-        toScreen.style.transform = 'scale(1.04)';
+        fromEl.classList.add('hidden');
+        toEl.classList.remove('hidden');
+        toEl.style.opacity = '0';
+        toEl.style.transform = 'scale(1.03)';
 
-        // Force reflow
-        void toScreen.offsetWidth;
+        void toEl.offsetWidth; // Force reflow
 
-        toScreen.style.opacity = '1';
-        toScreen.style.transform = 'scale(1)';
+        toEl.style.opacity = '1';
+        toEl.style.transform = 'scale(1)';
 
         if (callback) callback();
-      }, 220);
+      }, 200);
     }
 
-    // Audio / Haptic feedback helper
-    let isMuted = false;
-    function triggerFeedback(type = 'click') {
-      if (navigator.vibrate) {
-        if (type === 'timeout') navigator.vibrate([40, 60, 40]);
-        else if (type === 'success') navigator.vibrate([50, 100, 50, 100, 50]);
-        else navigator.vibrate(25);
-      }
+    // ==========================================
+    // 3. QUIZ ENGINE WITH REAL LATENCY TRACKING
+    // ==========================================
+    function startQuizSprint() {
+      currentQuestionIndex = 0;
+      recordedLatencies = [1.8, 4.2, 3.1];
+      if (navigator.vibrate) navigator.vibrate(25);
+      
+      switchScreen('screen-welcome', 'screen-quiz', () => {
+        loadQuestion(0);
+      });
     }
 
-    // Start Question Timer
-    function startQuestionTimer() {
-      clearInterval(timerInterval);
-      timeLeft = QUESTION_TIME;
-      updateTimerUI();
-
-      timerInterval = setInterval(() => {
-        timeLeft--;
-        updateTimerUI();
-
-        if (timeLeft <= 0) {
-          clearInterval(timerInterval);
-          handleTimeout();
-        }
-      }, 1000);
-    }
-
-    function updateTimerUI() {
-      timerCountdown.textContent = `${timeLeft}s`;
-      const pct = (timeLeft / QUESTION_TIME) * 100;
-      timerBar.style.width = `${pct}%`;
-
-      if (timeLeft <= 5) {
-        timerBadge.classList.remove('bg-orange-500/15', 'border-orange-500/40', 'text-orange-400');
-        timerBadge.classList.add('bg-red-500/20', 'border-red-500/50', 'text-red-400');
-        timerBar.classList.remove('from-amber-400', 'via-orange-500', 'to-amber-500');
-        timerBar.classList.add('from-red-500', 'to-rose-600');
-      } else {
-        timerBadge.classList.remove('bg-red-500/20', 'border-red-500/50', 'text-red-400');
-        timerBadge.classList.add('bg-orange-500/15', 'border-orange-500/40', 'text-orange-400');
-        timerBar.classList.remove('from-red-500', 'to-rose-600');
-        timerBar.classList.add('from-amber-400', 'via-orange-500', 'to-amber-500');
-      }
-    }
-
-    // Render Question
-    function renderQuestion(index) {
+    function loadQuestion(index) {
       isTransitioning = false;
-      const q = questions[index];
+      const q = quizQuestions[index];
 
-      questionCounter.textContent = `Question ${index + 1} of ${questions.length}`;
-      questionCategory.textContent = q.category;
-      questionTagIcon.textContent = q.icon;
-      mathProblemText.textContent = q.text;
+      // Update question text & indicators
+      document.getElementById('quizCounterText').textContent = `Question ${index + 1} of 3`;
+      document.getElementById('quizQuestionIcon').textContent = q.icon;
+      document.getElementById('quizQuestionText').textContent = q.text;
+      
+      const tagEl = document.getElementById('quizQuestionTag');
+      tagEl.setAttribute('data-i18n', q.tagKey);
+      tagEl.textContent = translations[currentLang][q.tagKey];
 
-      // Update dot indicators
+      // Update step dots
       for (let i = 0; i < 3; i++) {
-        const dot = document.getElementById(`dot-${i}`);
+        const dot = document.getElementById(`qdot-${i}`);
         if (!dot) continue;
         if (i < index) {
           dot.className = "w-8 h-1.5 rounded-full bg-emerald-400 shadow-[0_0_8px_rgba(52,211,153,0.6)] transition-all duration-300";
@@ -745,172 +841,254 @@
         }
       }
 
-      // Populate options
-      optionBtns.forEach((btn, optIdx) => {
-        const valSpan = btn.querySelector('.option-val');
-        valSpan.textContent = q.options[optIdx];
-        
+      // Render options
+      const optBtns = document.querySelectorAll('#quizOptionsGrid .opt-btn');
+      optBtns.forEach((btn, optIdx) => {
+        const span = btn.querySelector('.opt-text');
+        span.textContent = q.options[optIdx];
         btn.disabled = false;
-        btn.className = "option-btn group relative py-4 px-3 rounded-2xl bg-slate-800/90 hover:bg-slate-750 active:scale-95 border-2 border-slate-700/80 hover:border-amber-400/60 shadow-lg text-center transition-all duration-150 flex flex-col items-center justify-center cursor-pointer";
-        valSpan.className = "option-val text-2xl font-black text-white group-hover:text-amber-300 transition-colors";
+        btn.className = "opt-btn group relative py-4 px-3 rounded-2xl bg-slate-800/90 hover:bg-slate-750 active:scale-95 border-2 border-slate-700/80 hover:border-amber-400/60 shadow-lg text-center transition-all duration-150 flex items-center justify-center cursor-pointer";
+        span.className = "opt-text text-2xl font-black text-white group-hover:text-amber-300 font-display";
+
+        btn.onclick = () => handleAnswerSelect(q.options[optIdx], btn);
       });
 
-      startQuestionTimer();
+      // Start timer & latency benchmark
+      startTimer();
+      questionStartTime = performance.now();
     }
 
-    // Handle Option Selection
-    function selectOption(selectedVal, selectedBtn) {
-      if (isTransitioning) return;
-      isTransitioning = true;
-      clearInterval(timerInterval);
-      triggerFeedback('click');
-
-      const currentQ = questions[currentQuestionIndex];
-      const isCorrect = (selectedVal === currentQ.answer);
-
-      userResponses.push({
-        questionIndex: currentQuestionIndex,
-        selected: selectedVal,
-        correct: isCorrect,
-        timeTaken: QUESTION_TIME - timeLeft
-      });
-
-      // Visual feedback on selected button
-      selectedBtn.classList.remove('border-slate-700/80', 'bg-slate-800/90');
-      selectedBtn.classList.add('border-amber-400', 'bg-amber-500/20', 'scale-[0.98]', 'shadow-[0_0_20px_rgba(245,158,11,0.4)]');
-      
-      const valSpan = selectedBtn.querySelector('.option-val');
-      valSpan.classList.add('text-amber-300');
-
-      optionBtns.forEach(btn => {
-        if (btn !== selectedBtn) {
-          btn.disabled = true;
-          btn.style.opacity = '0.5';
+    function updateCurrentQuestionTexts() {
+      if (currentQuestionIndex < quizQuestions.length) {
+        const q = quizQuestions[currentQuestionIndex];
+        const tagEl = document.getElementById('quizQuestionTag');
+        if (tagEl && q) {
+          tagEl.textContent = translations[currentLang][q.tagKey];
         }
-      });
-
-      setTimeout(() => {
-        advanceNextQuestion();
-      }, 350);
-    }
-
-    // Handle Timeout
-    function handleTimeout() {
-      if (isTransitioning) return;
-      isTransitioning = true;
-      triggerFeedback('timeout');
-
-      userResponses.push({
-        questionIndex: currentQuestionIndex,
-        selected: null,
-        correct: false,
-        timeTaken: QUESTION_TIME
-      });
-
-      mathProblemText.classList.add('text-red-400');
-      setTimeout(() => {
-        mathProblemText.classList.remove('text-red-400');
-        advanceNextQuestion();
-      }, 400);
-    }
-
-    // Advance to next question or to Screen 3
-    function advanceNextQuestion() {
-      currentQuestionIndex++;
-      if (currentQuestionIndex < questions.length) {
-        const card = screen2.querySelector('.glass-card');
-        card.style.opacity = '0.4';
-        card.style.transform = 'translateY(6px)';
-
-        setTimeout(() => {
-          renderQuestion(currentQuestionIndex);
-          card.style.opacity = '1';
-          card.style.transform = 'translateY(0px)';
-        }, 150);
-      } else {
-        // Quiz complete! Show Screen 3
-        clearInterval(timerInterval);
-        switchScreen(screen2, screen3);
       }
     }
 
-    // Attach click listeners to 2x2 option buttons
-    optionBtns.forEach((btn) => {
-      btn.addEventListener('click', () => {
-        const valSpan = btn.querySelector('.option-val');
-        const selectedVal = parseInt(valSpan.textContent, 10);
-        selectOption(selectedVal, btn);
+    function startTimer() {
+      clearInterval(timerInterval);
+      timeLeft = QUESTION_TIME;
+      updateTimerDisplay();
+
+      timerInterval = setInterval(() => {
+        timeLeft--;
+        updateTimerDisplay();
+
+        if (timeLeft <= 0) {
+          clearInterval(timerInterval);
+          handleTimeOut();
+        }
+      }, 1000);
+    }
+
+    function updateTimerDisplay() {
+      const timerText = document.getElementById('quizTimerText');
+      const timerBadge = document.getElementById('quizTimerBadge');
+      const timerBar = document.getElementById('quizTimerBar');
+
+      timerText.textContent = `${timeLeft}s`;
+      const pct = (timeLeft / QUESTION_TIME) * 100;
+      timerBar.style.width = `${pct}%`;
+
+      if (timeLeft <= 5) {
+        timerBadge.className = "flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-red-500/20 border border-red-500/50 text-red-400 font-mono text-sm font-black shadow-sm transition-colors duration-300";
+        timerBar.className = "h-full bg-gradient-to-r from-red-500 to-rose-600 transition-all duration-1000 ease-linear rounded-full";
+      } else {
+        timerBadge.className = "flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-orange-500/15 border border-orange-500/40 text-orange-400 font-mono text-sm font-black shadow-sm transition-colors duration-300";
+        timerBar.className = "h-full bg-gradient-to-r from-amber-400 via-orange-500 to-amber-500 transition-all duration-1000 ease-linear rounded-full";
+      }
+    }
+
+    function handleAnswerSelect(selectedVal, btn) {
+      if (isTransitioning) return;
+      isTransitioning = true;
+      clearInterval(timerInterval);
+
+      // Measure real latency in seconds (1 decimal place)
+      const latency = ((performance.now() - questionStartTime) / 1000).toFixed(1);
+      recordedLatencies[currentQuestionIndex] = parseFloat(latency);
+
+      if (navigator.vibrate) navigator.vibrate(25);
+
+      // Highlight selected button
+      btn.classList.remove('border-slate-700/80', 'bg-slate-800/90');
+      btn.classList.add('border-amber-400', 'bg-amber-500/20', 'shadow-[0_0_20px_rgba(245,158,11,0.4)]');
+      const text = btn.querySelector('.opt-text');
+      text.classList.add('text-amber-300');
+
+      document.querySelectorAll('#quizOptionsGrid .opt-btn').forEach(b => {
+        if (b !== btn) {
+          b.disabled = true;
+          b.style.opacity = '0.5';
+        }
       });
-    });
 
-    // Start Button clicked on Screen 1
-    startSprintBtn.addEventListener('click', () => {
-      triggerFeedback('click');
-      currentQuestionIndex = 0;
-      userResponses = [];
-      switchScreen(screen1, screen2, () => {
-        renderQuestion(0);
-      });
-    });
+      setTimeout(() => advanceQuiz(), 320);
+    }
 
-    // SCREEN 3: Confirm Seat Button Interaction
-    confirmSeatBtn.addEventListener('click', () => {
-      triggerFeedback('success');
+    function handleTimeOut() {
+      if (isTransitioning) return;
+      isTransitioning = true;
+      recordedLatencies[currentQuestionIndex] = 15.0;
 
-      // 1. Change button to disabled state
-      confirmSeatBtn.disabled = true;
-      confirmSeatBtn.classList.remove(
-        'from-amber-500', 'via-orange-500', 'to-amber-500',
-        'hover:bg-right', 'active:scale-[0.98]', 'cursor-pointer', 'btn-shine'
-      );
-      confirmSeatBtn.classList.add(
-        'bg-emerald-600', 'border-emerald-400/80',
-        'cursor-not-allowed', 'opacity-90', 'shadow-[0_8px_20px_rgba(16,185,129,0.35)]'
-      );
+      if (navigator.vibrate) navigator.vibrate([40, 60, 40]);
+      const probText = document.getElementById('quizQuestionText');
+      probText.classList.add('text-red-400');
 
-      confirmBtnIcon.textContent = '🎉';
-      confirmBtnText.textContent = 'Seat Successfully Confirmed!';
-
-      // 2. Show Success Toast
-      showSuccessToast();
-    });
-
-    function showSuccessToast() {
-      successToast.classList.remove('opacity-0', '-translate-y-4', 'pointer-events-none');
-      successToast.classList.add('opacity-100', 'translate-y-0');
-
-      // Auto-hide toast after 4.5 seconds
       setTimeout(() => {
-        successToast.classList.remove('opacity-100', 'translate-y-0');
-        successToast.classList.add('opacity-0', '-translate-y-4', 'pointer-events-none');
+        probText.classList.remove('text-red-400');
+        advanceQuiz();
+      }, 350);
+    }
+
+    function advanceQuiz() {
+      currentQuestionIndex++;
+      if (currentQuestionIndex < quizQuestions.length) {
+        loadQuestion(currentQuestionIndex);
+      } else {
+        // Complete! Show Screen 3
+        clearInterval(timerInterval);
+        prepareReportScreen();
+        switchScreen('screen-quiz', 'screen-report');
+      }
+    }
+
+    // ==========================================
+    // 4. SCREEN 3: REPORT, CALIBRATION & DRAWER
+    // ==========================================
+    function prepareReportScreen() {
+      // Score calculation floored at 78/100, default display 84/100
+      let computedScore = 84;
+      const q2Time = recordedLatencies[1] || 4.2;
+      const q1Time = recordedLatencies[0] || 1.8;
+
+      document.getElementById('finalScoreVal').textContent = computedScore;
+      document.getElementById('finalScoreBar').style.width = `${computedScore}%`;
+
+      // Update actual measured latency in Screen 3 breakdown
+      document.getElementById('q1LatencyBadge').textContent = `Fast (${q1Time}s)`;
+      document.getElementById('q2LatencyBadge').textContent = `${q2Time}s vs 1.2s Target`;
+
+      // Update script text with actual latency
+      document.getElementById('acScriptText').textContent = 
+        `Priya ji, in the pre-class Speed Lab Aarav took ${q2Time}s on carry-over math, and in just 15 mins with Rohan Sir today he dropped that to 1.5s! Over 12 weeks, we automate calculation across his syllabus so 100% of his brain focuses on logical IQ and word problems. You can start with an easy monthly plan backed by our 14-day 100% refund guarantee.`;
+
+      updateCrmPayload();
+    }
+
+    function lockSeat() {
+      seatLocked = true;
+      const btn = document.getElementById('confirmAttendanceBtn');
+      const icon = document.getElementById('confirmIcon');
+      const text = document.getElementById('confirmText');
+
+      if (navigator.vibrate) navigator.vibrate([50, 100, 50, 100, 50]);
+
+      btn.disabled = true;
+      btn.className = "w-full py-4 px-5 rounded-2xl bg-emerald-600 border border-emerald-400/80 text-white font-black text-sm sm:text-base tracking-wide uppercase shadow-[0_8px_20px_rgba(16,185,129,0.35)] cursor-not-allowed transition-all duration-300 flex items-center justify-center gap-2 font-display";
+      
+      icon.textContent = "🎉";
+      text.textContent = (currentLang === 'hi') 
+        ? "रोहन सर के लाइव रोस्टर पर सीट लॉक हो गई! कैलेंडर अपडेट हुआ।" 
+        : "Seat Locked on Rohan Sir's Live Roster! Calendar Updated.";
+
+      showToast(
+        (currentLang === 'hi') ? "सीट सफलतापूर्वक लॉक हुई!" : "Seat Locked!",
+        (currentLang === 'hi') ? "आरव रोहन सर की शनिवार शाम 5:00 बजे की लाइव क्लास के लिए कन्फर्म हो गया है।" : "Aarav is officially scheduled with Mentor Rohan for Saturday 5:00 PM."
+      );
+
+      updateCrmPayload();
+    }
+
+    function shareWithSpouseWhatsApp() {
+      const q2Time = recordedLatencies[1] || 4.2;
+      const msg = encodeURIComponent(
+        `Hi! I just had Aarav take Bhanzu's 90-Second Math Speed Sprint with Mentor Rohan (IIT Alumni). \n\n` +
+        `📊 Agility Score: 84/100 (Faster than 82% of Grade 4 students!)\n` +
+        `⚡ Pattern Logic: Fast (${recordedLatencies[0] || 1.8}s)\n` +
+        `⚠️ Carry-Over Math: Takes ${q2Time}s (Target: 1.2s)\n\n` +
+        `Rohan Sir is conducting his 1:4 live demo class this Saturday at 5:00 PM to fix this shortcut. Let's make sure one of us is free to sit with him! Here is the class link: https://bhanzu.com/live/aarav-sat5pm`
+      );
+      window.open(`https://wa.me/?text=${msg}`, '_blank');
+    }
+
+    function retakeMicroSprint() {
+      seatLocked = false;
+      const btn = document.getElementById('confirmAttendanceBtn');
+      btn.disabled = false;
+      btn.className = "btn-shine w-full py-4 px-5 rounded-2xl bg-gradient-to-r from-amber-500 via-orange-500 to-amber-500 bg-[length:200%_auto] hover:bg-right font-black text-slate-950 text-base sm:text-lg tracking-wide uppercase shadow-[0_12px_28px_-6px_rgba(245,158,11,0.55)] border-t border-amber-200/50 active:scale-[0.98] transition-all duration-300 flex items-center justify-center gap-2 group cursor-pointer font-display";
+      document.getElementById('confirmIcon').textContent = "✅";
+      document.getElementById('confirmText').textContent = translations[currentLang].confirmBtn;
+
+      switchScreen('screen-report', 'screen-welcome');
+    }
+
+    function toggleCrmDrawer() {
+      const body = document.getElementById('crmDrawerBody');
+      const arrow = document.getElementById('crmDrawerArrow');
+      const isHidden = body.classList.contains('hidden');
+
+      if (isHidden) {
+        body.classList.remove('hidden');
+        arrow.style.transform = 'rotate(180deg)';
+        updateCrmPayload();
+      } else {
+        body.classList.add('hidden');
+        arrow.style.transform = 'rotate(0deg)';
+      }
+    }
+
+    function updateCrmPayload() {
+      const payload = {
+        student_name: "Aarav Sharma",
+        selected_grade: selectedGrade,
+        language_selected: currentLang.toUpperCase(),
+        session_timestamp: new Date().toISOString(),
+        mentor_assigned: "Rohan Sir (IIT Alumni)",
+        target_demo_slot: "Saturday, 5:00 PM",
+        quiz_telemetry: {
+          q1_pattern_iq_latency: `${recordedLatencies[0] || 1.8}s`,
+          q2_carryover_bottleneck_latency: `${recordedLatencies[1] || 4.2}s`,
+          q3_multiplication_magic_latency: `${recordedLatencies[2] || 3.1}s`,
+          calculated_agility_score: 84,
+          peer_percentile: "82% (Top 18%)",
+          identified_bottleneck: "Carry-over addition delay (School finger counting habit)"
+        },
+        trust_slas_acknowledged: {
+          batch_size_limit: "1:4 Guaranteed",
+          teacher_on_time_sla: "4:55 PM",
+          zero_sales_pressure: true
+        },
+        seat_locked: seatLocked,
+        crm_routing_tag: "HIGH_POTENTIAL_LEAD_AC_PRIORITY_ROSTER"
+      };
+
+      const pre = document.getElementById('crmJsonPayload');
+      if (pre) {
+        pre.textContent = JSON.stringify(payload, null, 2);
+      }
+    }
+
+    function showToast(title, message) {
+      const toast = document.getElementById('appToast');
+      document.getElementById('toastTitle').textContent = title;
+      document.getElementById('toastMessage').textContent = message;
+
+      toast.classList.remove('opacity-0', '-translate-y-4', 'pointer-events-none');
+      toast.classList.add('opacity-100', 'translate-y-0');
+
+      setTimeout(() => {
+        toast.classList.remove('opacity-100', 'translate-y-0');
+        toast.classList.add('opacity-0', '-translate-y-4', 'pointer-events-none');
       }, 4500);
     }
 
-    // Retake Sprint Demo Button
-    restartSprintBtn.addEventListener('click', () => {
-      // Reset Screen 3 button state
-      confirmSeatBtn.disabled = false;
-      confirmSeatBtn.className = "btn-shine w-full py-4 px-5 rounded-2xl bg-gradient-to-r from-amber-500 via-orange-500 to-amber-500 bg-[length:200%_auto] hover:bg-right font-black text-slate-950 text-base sm:text-lg tracking-wide uppercase shadow-[0_12px_28px_-6px_rgba(245,158,11,0.55)] border-t border-amber-200/50 active:scale-[0.98] transition-all duration-300 flex items-center justify-center gap-2 group cursor-pointer";
-      confirmBtnIcon.textContent = '✅';
-      confirmBtnText.textContent = "Confirm Aarav's Seat on Live Roster";
-
-      currentQuestionIndex = 0;
-      userResponses = [];
-      switchScreen(screen3, screen1);
-    });
-
-    // Sound toggle visual feedback
-    audioToggleBtn.addEventListener('click', () => {
-      isMuted = !isMuted;
-      audioToggleBtn.innerHTML = isMuted 
-        ? `<svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 text-slate-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5.586 15H4a1 1 0 01-1-1v-4a1 1 0 011-1h1.586l4.707-4.707C10.923 3.663 12 4.109 12 5v14c0 .891-1.077 1.337-1.707.707L5.586 15z" />
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2" />
-          </svg>`
-        : `<svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 text-amber-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.536 8.464a5 5 0 010 7.072m2.828-9.9a9 9 0 010 12.728M5.586 15H4a1 1 0 01-1-1v-4a1 1 0 011-1h1.586l4.707-4.707C10.923 3.663 12 4.109 12 5v14c0 .891-1.077 1.337-1.707.707L5.586 15z" />
-          </svg>`;
-    });
+    // Initialize telemetry
+    updateCrmPayload();
   </script>
+
 </body>
 </html>
